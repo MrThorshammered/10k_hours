@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
-var BadgeSchema = new mongoose.Schema({
+var badgeSchema = new mongoose.Schema({
   name: String,
   image: String
 });
 
-var Badge = mongoose.model('Badge', BadgeSchema);
+var Badge = mongoose.model('Badge', badgeSchema);
 
 module.exports = Badge
