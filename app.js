@@ -3,15 +3,19 @@ mongoose.connect('mongodb://localhost/10k')
 express = require('express')
 var router = express.Router();
 var app = express();
+var path = require('path');
 var expressLayouts = require('express-ejs-layouts');
 
 var Log = require('./models/log')
 var Badge = require('./models/badge')
 var User = require('./models/user')
 
+app.set('views', path.join(__dirname, 'views'));
+app.engine('ejs', require('ejs').renderFile);
+
 
 app.get('/', function(req, res){
-  res.send("Hello World")
+  res.resnder('index')
 })
 
 //adding in seed data
