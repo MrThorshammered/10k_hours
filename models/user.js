@@ -2,20 +2,11 @@ var mongoose = require('mongoose');
 var Log = mongoose.model('Log');
 var bcrypt   = require('bcrypt-nodejs');
 
-// var userSchema = new mongoose.Schema({
-//   name: {type: String, required: true},
-//   password: String,
-//   discipline: String,
-//   logs: [Log.schema],
-//   badges: {type: mongoose.Schema.ObjectId, ref: 'Badge'}
-  
-// });
-
 var userSchema = new mongoose.Schema({
 
     local            : {
         email        : String,
-        name         : String,
+        screen_name  : String,
         password     : String,
         discipline   : String,
         logs: [Log.schema],
