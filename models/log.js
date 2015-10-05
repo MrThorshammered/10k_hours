@@ -4,8 +4,8 @@ var LogSchema = new mongoose.Schema({
   date: Date,
   type: String,
   hours: Number,
-  notes: Text,
-  video: Text
+  notes: String,
+  video: String
 });
 
 var Log = mongoose.model('Log', LogSchema);

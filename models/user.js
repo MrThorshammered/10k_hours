@@ -3,7 +3,7 @@ var UserSchema = new mongoose.Schema({
   name: {type: String, required: true},
   password: String,
   discipline: String,
-  logs: [Log.schema],
+  // logs: [Log.schema],
   badges: {type: mongoose.Schema.ObjectId, ref: 'Badge'}
   
 });
