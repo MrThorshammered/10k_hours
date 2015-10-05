@@ -3,6 +3,7 @@ mongoose.connect('mongodb://localhost/10k')
 express = require('express')
 var router = express.Router();
 var app = express();
+var expressLayouts = require('express-ejs-layouts');
 
 var Log = require('./models/log')
 var Badge = require('./models/badge')
