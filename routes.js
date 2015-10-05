@@ -59,7 +59,7 @@ module.exports = function(app, passport) {
     // FACEBOOK ROUTES =====================
     // =====================================
     // route for facebook authentication and login
-    app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email', 'user_photos'] }));
 
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
@@ -80,7 +80,7 @@ module.exports = function(app, passport) {
 // facebook -------------------------------
 
         // send to facebook to do the authentication
-        app.get('/connect/facebook', passport.authorize('facebook', { scope : 'email' }));
+        app.get('/connect/facebook', passport.authorize('facebook', { scope : ['email', 'user_photos'] }));
 
         // handle the callback after facebook has authorized the user
         app.get('/connect/facebook/callback',
