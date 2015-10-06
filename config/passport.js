@@ -45,13 +45,14 @@ module.exports = function(passport) {
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
         callbackURL     : configAuth.facebookAuth.callbackURL,
-        profileFields   : ["emails", "displayName", "name"],
+        profileFields   : ["emails", "displayName", "name", "photos"],
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
 
     },
 
  // facebook will send back the token and profile
     function(req, token, refreshToken, profile, done) {
+          console.log(req.body.discipline)
 
         // asynchronous
         process.nextTick(function() {
@@ -76,6 +77,8 @@ module.exports = function(passport) {
                             user.facebook.token = token;
                             user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
                             user.facebook.email = profile.emails[0].value;
+                            user.facebook.user_photos = profile.photos ? profile.photos[0].value : 'http://a.tgcdn.net/images/products/zoom/11af_4th_doctors_hat.jpg',
+                            
 
                             user.save(function(err) {
                                 if (err)
@@ -96,6 +99,10 @@ module.exports = function(passport) {
                     newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
                     newUser.facebook.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
 
+                    newUser.facebook.user_photos = profile.photos ? profile.photos[0].value : 'http://a.tgcdn.net/images/products/zoom/11af_4th_doctors_hat.jpg',
+
+                    
+
                     // save our user to the database
                     newUser.save(function(err) {
                         if (err)
@@ -108,7 +115,7 @@ module.exports = function(passport) {
 
             });
            } else {
-                // user already exists and is logged in, we have to link accounts
+                // user already exists and is logged in6, we have to link accounts
                 var user            = req.user; // pull the user out of the session
 
                 // update the current users facebook credentials
@@ -116,6 +123,8 @@ module.exports = function(passport) {
                 user.facebook.token = token;
                 user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
                 user.facebook.email = profile.emails[0].value;
+                user.facebook.user_photos = profile.photos ? profile.photos[0].value : 'http://a.tgcdn.net/images/products/zoom/11af_4th_doctors_hat.jpg';
+              
 
                 // save the user
                 user.save(function(err) {
