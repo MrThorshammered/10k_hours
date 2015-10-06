@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
+var methodOverride = require('method-override')
 
 var mongoose = require('mongoose');
+
+app.use(methodOverride('_method'));
 
     //=========
     //LOGS
@@ -87,10 +90,17 @@ module.exports = function(app, passport) {
 
     //DELETE
     app.delete('/logs/:id', isLoggedIn, function(req,res){
-        Log.findByIdAndRemove(req.params.id, function(err,log){
+        var user = req.user
+        var logId = req.params.id
+        user.local.logs.id(req.params.id).remove();
+        user.save(function (err) {
             if(err) console.log(err)
-            res.redirect() 
-        })
+            Log.findByIdAndRemove(logId, function(err, log){
+                if(err) console.log(err)
+                console.log('log deleted')
+            })
+            res.redirect('/logs') 
+        });
     })
 
 

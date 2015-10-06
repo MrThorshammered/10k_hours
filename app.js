@@ -8,6 +8,9 @@ var port     = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
+var methodOverride = require('method-override')
+app.use(methodOverride('_method'));
+
 
 //var router = express.Router(); taken out for now as routing was set up differently by Sam
 
@@ -35,9 +38,21 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+
 var Log = require('./models/log')
 var Badge = require('./models/badge')
 var User = require('./models/user')
+
+//middleware
+//=======================
+app.use(methodOverride(function(req, res){
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
+}))
 
 
 // routes ======================================================================
