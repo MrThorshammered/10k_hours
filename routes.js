@@ -1,5 +1,113 @@
-// /routes.js
+var express = require('express');
+var app = express();
+var methodOverride = require('method-override')
+
+var mongoose = require('mongoose');
+
+app.use(methodOverride('_method'));
+
+    //=========
+    //LOGS
+    //=========
+    // var logsController = require('./controllers/logs');
+    // var logsRouter = express.Router();
+
+    // logsRouter.route('/logs')
+    // .get(logsController.allLogs);
+
 module.exports = function(app, passport) {
+
+    var Log = mongoose.model("Log");
+    var User = mongoose.model("User");
+
+    //SHOW ALL LOGS FOR THE LOGGED IN USER
+    app.get('/logs', isLoggedIn, function(req,res){ 
+         var userLogs = req.user.local.logs
+            //res.json(userLogs)
+        res.render('logs/index', { userLogs: userLogs });
+    })
+
+    //NEW
+    app.get('/logs/new', isLoggedIn, function(req,res){
+        res.render('logs/new')
+    })
+
+    //CREATE
+    app.post('/logs', isLoggedIn, function(req,res){
+    Log.create(req.body, function(err,log){
+        console.log(req.body)
+        if(err){
+            res.send('error' + err)
+        } else{
+            user = req.user
+            console.log('user:'+ user)
+            
+            console.log('log:'+ log)
+
+            user.local.logs.push(log)
+            user.save(function(err,user){
+                if(err)console.log(err);
+                console.log('user saved')
+            })
+            res.redirect('/logs')
+        }
+    })
+})
+
+
+    //SHOW
+    app.get('/logs/:id', isLoggedIn, function(req, res){
+        console.log(req.params)
+        // var userLogs = req.user.local.logs
+        // req.json(userLogs.this.id)
+       Log.findById(req.params.id, function (err, log) {
+        if(err) console.log(err)
+        res.json(log)
+       });
+
+    })
+
+    //EDIT
+    app.get('/logs/:id/edit', isLoggedIn, function(req, res){
+        // var userLogs = req.user.local.logs
+        // userLogs.findById(this.id)
+
+        Log.findById(req.params.id, function (err, log) {
+        if(err) console.log(err)
+        res.render('logs/edit', 
+            { log:log }
+        )
+       });
+    })
+
+    //UPDATE
+    app.post('/logs/:id', isLoggedIn, function(req,res){
+        Log.findByIdAndUpdate(req.params.id, req.body, function(err,log){
+            if(err) console.log(err)
+            res.redirect(req.params.id) 
+        })
+    })
+
+    //DELETE
+    app.delete('/logs/:id', isLoggedIn, function(req,res){
+        var user = req.user
+        var logId = req.params.id
+        user.local.logs.id(req.params.id).remove();
+        user.save(function (err) {
+            if(err) console.log(err)
+            Log.findByIdAndRemove(logId, function(err, log){
+                if(err) console.log(err)
+                console.log('log deleted')
+            })
+            res.redirect('/logs') 
+        });
+    })
+
+
+
+
+
+
 
     // =====================================
     // HOME PAGE (with login links) ========
