@@ -29,14 +29,12 @@
 
                     <% if (user.facebook.token) { %>
                     <p>
-                        <strong>id</strong>: <%= user.facebook.id %><br>
-                        <strong>token</strong>: <%= user.facebook.token %><br>
+                        <img src="<%= user.facebook.user_photos %>"><br>
+                        <%= user.facebook.name %><br>
                         <strong>email</strong>: <%= user.facebook.email %><br>
-                        <strong>name</strong>: <%= user.facebook.name %><br>
-                        <strong>photo</strong>: <%= user.facebook.user_photos %><br>
+                        <strong>Discipline</strong>: <%= user.local.discipline %><br>
                     </p>
-                    
-                    <img src="<%= user.facebook.user_photos %>">
+                
                         
                      
 

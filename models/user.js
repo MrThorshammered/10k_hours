@@ -17,8 +17,10 @@ var userSchema = new mongoose.Schema({
         token        : String,
         email        : String,
         name         : String,
-        user_photos      : String,
+        user_photos    : String,
+        discipline   : String
     }
+        
 });
 
 // methods ======================

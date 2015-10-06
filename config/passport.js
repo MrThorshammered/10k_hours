@@ -52,6 +52,7 @@ module.exports = function(passport) {
 
  // facebook will send back the token and profile
     function(req, token, refreshToken, profile, done) {
+          console.log(req.body.discipline)
 
         // asynchronous
         process.nextTick(function() {
@@ -77,6 +78,7 @@ module.exports = function(passport) {
                             user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
                             user.facebook.email = profile.emails[0].value;
                             user.facebook.user_photos = profile.photos ? profile.photos[0].value : 'http://a.tgcdn.net/images/products/zoom/11af_4th_doctors_hat.jpg',
+                            
 
                             user.save(function(err) {
                                 if (err)
@@ -99,6 +101,8 @@ module.exports = function(passport) {
 
                     newUser.facebook.user_photos = profile.photos ? profile.photos[0].value : 'http://a.tgcdn.net/images/products/zoom/11af_4th_doctors_hat.jpg',
 
+                    
+
                     // save our user to the database
                     newUser.save(function(err) {
                         if (err)
@@ -119,7 +123,8 @@ module.exports = function(passport) {
                 user.facebook.token = token;
                 user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
                 user.facebook.email = profile.emails[0].value;
-                user.facebook.user_photos = profile.photos ? profile.photos[0].value : 'http://a.tgcdn.net/images/products/zoom/11af_4th_doctors_hat.jpg',
+                user.facebook.user_photos = profile.photos ? profile.photos[0].value : 'http://a.tgcdn.net/images/products/zoom/11af_4th_doctors_hat.jpg';
+              
 
                 // save the user
                 user.save(function(err) {
