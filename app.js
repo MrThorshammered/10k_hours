@@ -112,6 +112,145 @@ Baby_step.save(function(err, badge){
     console.log("badge saved!")
 })
 
+var best_in_class = new Badge({
+  name: "Best in class",
+  image: "images/best_in_class.png"
+})
+
+best_in_class.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var bright_spark = new Badge({
+  name: "Bright spark",
+  image: "images/bright_spark.png"
+})
+
+bright_spark.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var collaborator = new Badge({
+  name: "Collaborator",
+  image: "images/collaborator.png"
+})
+
+collaborator.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var deep_thinker = new Badge({
+  name: "Deep thinker",
+  image: "images/deep-thinker.png"
+})
+
+deep_thinker.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var deep_thinker2 = new Badge({
+  name: "Deep thinker 2",
+  image: "images/deep-thinker2.png"
+})
+
+deep_thinker2.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var distinguished = new Badge({
+  name: "Distinguished",
+  image: "images/distinguished.png"
+})
+
+distinguished.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var frequent_user = new Badge({
+  name: "Frequent user",
+  image: "images/frequent_user.png"
+})
+
+frequent_user.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var guru = new Badge({
+  name: "Guru",
+  image: "images/guru.png"
+})
+
+guru.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var hard_worker = new Badge({
+  name: "Hard worker",
+  image: "images/hard-worker.png"
+})
+
+hard_worker.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var innovator = new Badge({
+  name: "Innovator",
+  image: "images/innovator.png"
+})
+
+innovator.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var master = new Badge({
+  name: "Master",
+  image: "images/master.png"
+})
+
+master.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var pathfinder = new Badge({
+  name: "Pathfinder",
+  image: "images/pathfinder.png"
+})
+
+pathfinder.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var Pro = new Badge({
+  name: "Pro",
+  image: "images/pro.png"
+})
+
+Pro.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+var teacher = new Badge({
+  name: "Teacher",
+  image: "images/teacher.png"
+})
+
+teacher.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
 
 // launch ======================================================================
 app.listen(port);
