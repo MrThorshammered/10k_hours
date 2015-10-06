@@ -12,9 +12,6 @@ var mongoose = require('mongoose');
     // logsRouter.route('/logs')
     // .get(logsController.allLogs);
 
-  
-
-
 module.exports = function(app, passport) {
 
     var Log = mongoose.model("Log");
@@ -23,10 +20,8 @@ module.exports = function(app, passport) {
     //SHOW ALL LOGS FOR THE LOGGED IN USER
     app.get('/logs', isLoggedIn, function(req,res){ 
          var userLogs = req.user.local.logs
-            res.json(userLogs)
-        // User.find({}, function(err, users){
-        // res.render('logs/index', { users: users });
-        // })
+            //res.json(userLogs)
+        res.render('logs/index', { userLogs: userLogs });
     })
 
     //NEW
@@ -45,7 +40,7 @@ module.exports = function(app, passport) {
             console.log('user:'+ user)
             
             console.log('log:'+ log)
-            
+
             user.local.logs.push(log)
             user.save(function(err,user){
                 if(err)console.log(err);
@@ -55,6 +50,49 @@ module.exports = function(app, passport) {
         }
     })
 })
+
+
+    //SHOW
+    app.get('/logs/:id', isLoggedIn, function(req, res){
+        console.log(req.params)
+        // var userLogs = req.user.local.logs
+        // req.json(userLogs.this.id)
+       Log.findById(req.params.id, function (err, log) {
+        if(err) console.log(err)
+        res.json(log)
+       });
+
+    })
+
+    //EDIT
+    app.get('/logs/:id/edit', isLoggedIn, function(req, res){
+        // var userLogs = req.user.local.logs
+        // userLogs.findById(this.id)
+
+        Log.findById(req.params.id, function (err, log) {
+        if(err) console.log(err)
+        res.render('logs/edit', 
+            { log:log }
+        )
+       });
+    })
+
+    //UPDATE
+    app.post('/logs/:id', isLoggedIn, function(req,res){
+        Log.findByIdAndUpdate(req.params.id, req.body, function(err,log){
+            if(err) console.log(err)
+            res.redirect(req.params.id) 
+        })
+    })
+
+    //DELETE
+    app.delete('/logs/:id', isLoggedIn, function(req,res){
+        Log.findByIdAndRemove(req.params.id, function(err,log){
+            if(err) console.log(err)
+            res.redirect() 
+        })
+    })
+
 
 
 
