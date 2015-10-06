@@ -116,6 +116,12 @@ module.exports = function(app, passport) {
         res.render('index.ejs'); // load the index.ejs file
     });
 
+    app.post('/', passport.authenticate('facebook',{
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/login', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }))
+
     // =====================================
     // LOGIN ===============================
     // =====================================
@@ -163,16 +169,44 @@ module.exports = function(app, passport) {
     });
 
 
+// adding discipline to facebook signup
+    app.get('/add-discipline', isLoggedIn, function(req, res) {
+        res.render('facebook-signup.ejs', {
+            user : req.user // get the user out of session and pass to template
+        });
+    });
+
+    app.post('/add-discipline', isLoggedIn, function(req, res)  {
+        console.log(req.user)
+        console.log(req.body)
+        req.user.local.discipline = req.body.discipline
+        req.user.save(function(err) {
+                if (err)
+                    res.send(err);
+
+                console.log("user updated!");
+            });
+        
+        
+        res.render('profile.ejs', {
+            user : req.user
+        })
+
+
+
+    });
+
+
  // =====================================
     // FACEBOOK ROUTES =====================
     // =====================================
     // route for facebook authentication and login
-    app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email', 'user_photos'] }));
 
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect : '/profile',
+            successRedirect : '/add-discipline',
             failureRedirect : '/'
         }));
 
@@ -188,12 +222,12 @@ module.exports = function(app, passport) {
 // facebook -------------------------------
 
         // send to facebook to do the authentication
-        app.get('/connect/facebook', passport.authorize('facebook', { scope : 'email' }));
+        app.get('/connect/facebook', passport.authorize('facebook', { scope : ['email', 'user_photos'] }));
 
         // handle the callback after facebook has authorized the user
         app.get('/connect/facebook/callback',
             passport.authorize('facebook', {
-                successRedirect : '/profile',
+                successRedirect : '/add-discipline',
                 failureRedirect : '/'
             }));
 // =============================================================================
