@@ -1,5 +1,65 @@
-// /routes.js
+var express = require('express');
+var app = express();
+
+var mongoose = require('mongoose');
+
+    //=========
+    //LOGS
+    //=========
+    // var logsController = require('./controllers/logs');
+    // var logsRouter = express.Router();
+
+    // logsRouter.route('/logs')
+    // .get(logsController.allLogs);
+
+  
+
+
 module.exports = function(app, passport) {
+
+    var Log = mongoose.model("Log");
+    var User = mongoose.model("User");
+
+    //SHOW ALL LOGS FOR THE LOGGED IN USER
+    app.get('/logs', isLoggedIn, function(req,res){ 
+         var userLogs = req.user.local.logs
+            res.json(userLogs)
+        // User.find({}, function(err, users){
+        // res.render('logs/index', { users: users });
+        // })
+    })
+
+    //NEW
+    app.get('/logs/new', isLoggedIn, function(req,res){
+        res.render('logs/new')
+    })
+
+    //CREATE
+    app.post('/logs', isLoggedIn, function(req,res){
+    Log.create(req.body, function(err,log){
+        console.log(req.body)
+        if(err){
+            res.send('error' + err)
+        } else{
+            user = req.user
+            console.log('user:'+ user)
+            
+            console.log('log:'+ log)
+            
+            user.local.logs.push(log)
+            user.save(function(err,user){
+                if(err)console.log(err);
+                console.log('user saved')
+            })
+            res.redirect('/logs')
+        }
+    })
+})
+
+
+
+
+
 
     // =====================================
     // HOME PAGE (with login links) ========
