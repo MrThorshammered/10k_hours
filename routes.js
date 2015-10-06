@@ -199,9 +199,7 @@ module.exports = function(app, passport) {
             });
         
         
-        res.render('profile.ejs', {
-            user : req.user
-        })
+        res.redirect('/profile')
 
 
 
