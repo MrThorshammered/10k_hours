@@ -29,7 +29,7 @@ require('./config/passport')(passport); // pass passport for configuration
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
-
+app.use( express.static( "public" ) );
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
@@ -53,6 +53,8 @@ app.use(methodOverride(function(req, res){
     return method
   }
 }))
+
+
 
 
 // routes ======================================================================
@@ -102,7 +104,7 @@ require('./routes.js')(app, passport); // load our routes and pass in our app an
 
 var Baby_step = new Badge({
   name: "Baby Step",
-  image: "./public/images/baby_step.png"
+  image: "images/baby_step.png"
 })
 
 Baby_step.save(function(err, badge){

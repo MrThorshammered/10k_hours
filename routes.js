@@ -19,6 +19,17 @@ module.exports = function(app, passport) {
 
     var Log = mongoose.model("Log");
     var User = mongoose.model("User");
+    var Badge = mongoose.model("Badge")
+
+    //SHOW ALL BADGES IN DATABASE (NOT WITH USER)
+
+    app.get('/allbadges', function(req,res){
+        Badge.find(function (err, badges){
+            if (err)
+                res.send(err);
+            res.render('allbadges', {badges: badges})
+        })
+    })
 
     //SHOW ALL LOGS FOR THE LOGGED IN USER
     app.get('/logs', isLoggedIn, function(req,res){ 
