@@ -33,8 +33,12 @@
                         <strong>token</strong>: <%= user.facebook.token %><br>
                         <strong>email</strong>: <%= user.facebook.email %><br>
                         <strong>name</strong>: <%= user.facebook.name %><br>
-                        <strong>photos</strong>: <%= user.facebook.user_photos %><br>
+                        <strong>photo</strong>: <%= user.facebook.user_photos %><br>
                     </p>
+                    
+                    <img src="<%= user.facebook.user_photos %>">
+                        
+                     
 
                     <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
                 <% } else { %>
