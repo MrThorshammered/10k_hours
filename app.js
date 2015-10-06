@@ -83,6 +83,19 @@ require('./routes.js')(app, passport); // load our routes and pass in our app an
 //     console.log("Jack saved")
 // })
 
+//***************All badge seed data******************
+
+var Baby_step = new Badge({
+  name: "Baby Step",
+  image: "./public/images/baby_step.png"
+})
+
+Baby_step.save(function(err, badge){
+  if (err) console.log(err)
+    console.log("badge saved!")
+})
+
+
 // launch ======================================================================
 app.listen(port);
 console.log('The magic happens on port ' + port);
