@@ -74,27 +74,22 @@ module.exports = function(app, passport) {
                 if(err) console.log(err)
                 // console.log(badge)
                 req.user.local.badges.push(badge)
-
-                req.user.save(function(err, user){
-                    if(err) console.log(err)
-                        User.find({}).populate('local.badges').exec(function(err, users){
-                            console.log(users[0].local.badges[0].name)
-                            console.log(users[0].local.badges[0].image)
-                            res.json({
-                                badgename: users[0].local.badges[0].name
-
-
-                            })
-                        })
-                    // User.findOne(req.user).populate('local.badges.name').exec(function(err, users){
-                    //     console.log(user.local.badges[0].name)
-                    })
-                    
-                })
-                //console.log(req.user)   
-            
+            })   
     }
 
+
+    req.user.save(function(err, user){
+        if(err) console.log(err)
+        User.find({}).populate('local.badges').exec(function(err, users){
+            console.log(users[0].local.badges[0].name)
+            console.log(users[0].local.badges[0].id)
+            res.json({badgename: users[0].local.badges})
+        })
+    })
+                    
+
+
+    
 // var userBadgesObjects = []
 
 // function createBadgeObjectArray(){
