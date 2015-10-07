@@ -1,0 +1,16 @@
+body{
+	background-image: url('../images/badgeCase.jpg');
+	background-repeat: repeat-y;
+	background-size: 1450px 700px;
+
+}
+
+img{
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 30px;
+}
+
+div{
+	text-align: center;
+}
