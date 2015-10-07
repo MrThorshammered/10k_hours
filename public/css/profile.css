@@ -74,13 +74,36 @@ h1{
 
 #discipline-header, #facebook-name, .have-account{
 	display: block;
-	text-align: center
+	text-align: center;
+	color: #333333;
+}
+
+#facebook-name{
+	padding-bottom: 20px;
+	color: #333333;
+}
+
+
+
+#facebook-login-page-background{
+	background-image: url('../images/autumnal_background_2.jpg');
+	background-size: cover
+
+}
+
+
+.jumbotron{
+	/*opacity: .85;*/
+	width: 45%;
+	position: fixed;
+	left: 27%;
+	background-color: rgba(156,186,127, 0.8);
+	border-radius: 25px;
+	
 }
 
 #facebook-pic, #discipline-button{
 	display: block;
 	margin: 0 auto;
+	opacity: 1;
 }
-
-
-
