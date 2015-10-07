@@ -1,14 +1,15 @@
 body{
-	background-image: url('../images/seasonsChange.gif');
+	background-image: url('../images/fallingleaves.gif');
 	background-size: cover;
 }
 
 .jumbotron{
 	opacity: .85;
-	width: 75%;
+	width: 45%;
 	position: fixed;
-	left: 15%;
+	left: 27%;
 	background-color: #9CBA7F;
+	border-radius: 25px;
 
 }
 
@@ -21,7 +22,7 @@ body{
 }
 
 h1{
-	display: inline-block;
+	/*display: inline-block;*/
 	vertical-align: bottom;
 	padding-bottom: 20px;
 }
