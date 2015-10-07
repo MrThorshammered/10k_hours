@@ -42,20 +42,27 @@ module.exports = function(app, passport) {
         }
         console.log(totalhours)
 
-        var badge = calculateBadge(totalhours)
+        // var badge = calculateBadge(totalhours)
 
 //work out what badges the user has based on the total number of hours
     switch (true) {
         case (totalhours > 10 && totalhours < 14):
             console.log(totalhours)
             console.log('you have badge 1')
+            giveBadgeToUser('Baby Step')
             break;
         case (totalhours > 15 && totalhours < 19):
             console.log('you have badge 1 and 2')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            //console.log(req.user)
             break;
         case (totalhours > 20):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
             break;
         default:
             console.log('default')
@@ -63,24 +70,39 @@ module.exports = function(app, passport) {
 
     }
 
-    BADGES = {
-        '1': ['badge 1'],
-        '2': ['badge 1', '2'],
-        '3': ['badge 1', 2,3],
-        '4': ['badge 1',2,3,4]
-    }
+    // BADGES = {
+    //     '1': ['badge 1'],
+    //     '2': ['badge 1', '2'],
+    //     '3': ['badge 1', 2,3],
+    //     '4': ['badge 1',2,3,4]
+    // }
 
 
 
 
         // console.log(req.user)
 
-        Badge.findById('5614f3df85ffa83c2d9952bc', function(err, badge){
+
+function giveBadgeToUser(badgename) {
+    Badge.findOne({ name: badgename }, function(err, badge){
             if(err) console.log(err)
-            //console.log(badge)
+            console.log(badge)
             req.user.local.badges.push(badge)
+            req.user.save(function(err){
+                if(err) console.log(err)
+                console.log('user saved')
+            })
             //console.log(req.user)   
         })
+}
+
+
+        // Badge.findById('5614f3df85ffa83c2d9952bc', function(err, badge){
+        //     if(err) console.log(err)
+        //     //console.log(badge)
+        //     req.user.local.badges.push(badge)
+        //     //console.log(req.user)   
+        // })
         
 
 
