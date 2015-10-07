@@ -22,7 +22,7 @@
 
          <% } %>
 
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <a href="/logout" id="logout-btn" class="btn btn-default btn-sm">Logout</a>
     </div>
 
     <div class="row">
@@ -40,13 +40,13 @@
                         <strong>Discipline</strong>: <%= user.local.discipline %><br>
                         <strong>email</strong>: <%= user.local.email %><br>
                     </p>
-                    <a class="btn btn-primary" id="log-btn" href="/logs">LOGS</a><br>
+                    <a class="btn btn-primary" id="log-btn" href="/logs">My Logs</a><br>
                     
                 <% } %>
 
                 <h1>Badges: <a href="/badges" class="btn btn-primary">My Badges</a></h1>
 
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+                <h3><span class="fa fa-facebook"></span> Facebook</h3>
 
                     <% if (user.facebook.token) { %>
                 
