@@ -24,12 +24,12 @@ module.exports = function(app, passport) {
     app.get('/logs', isLoggedIn, function(req,res){ 
          var userLogs = req.user.local.logs
             //res.json(userLogs)
-        res.render('logs/index', { userLogs: userLogs });
+        res.render('logs_views/index', { userLogs: userLogs });
     })
 
     //NEW
     app.get('/logs/new', isLoggedIn, function(req,res){
-        res.render('logs/new')
+        res.render('logs_views/new')
     })
 
     //CREATE
@@ -74,7 +74,7 @@ module.exports = function(app, passport) {
 
         Log.findById(req.params.id, function (err, log) {
         if(err) console.log(err)
-        res.render('logs/edit', 
+        res.render('logs_views/edit', 
             { log:log }
         )
        });

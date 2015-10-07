@@ -1,0 +1,15 @@
+hi there this page shows all your logs
+
+<% for(var i=0; i< userLogs.length; i++) {  %>
+
+<a href="logs/<%=userLogs[i].id %>"><%=userLogs[i].name %></a>
+
+  <form method="POST" action="/logs/<%=userLogs[i].id %>">
+    <div class="form-group col-md-4">
+      <input type="hidden" name="_method" value="DELETE">
+    </div>
+     <div class="form-group col-md-4">
+      <button type="submit" class="btn btn-success col-md-12">Delete log</button>
+    </div>
+  </form>
+<% } %>
