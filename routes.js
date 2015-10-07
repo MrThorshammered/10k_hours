@@ -31,13 +31,28 @@ module.exports = function(app, passport) {
 
     //SHOW BADGES FOR A USER
     app.get('/badges', isLoggedIn, function(req,res){
+
+        var totalhours = 0
+        //console.log(req.user.local.logs[0].hours)
+        //var hours = req.user.local.logs[0].hours
+        //totalhours += hours
+        //console.log(totalhours)
+
+        var logs = req.user.local.logs
+
+        for (var i=0; i<logs.length;i++ ) {
+            var hours = logs[i].hours
+            totalhours += hours
+        }
+        console.log(totalhours)
+
         // console.log(req.user)
 
         Badge.findById('5614f3df85ffa83c2d9952bc', function(err, badge){
             if(err) console.log(err)
-            console.log(badge)
+            //console.log(badge)
             req.user.local.badges.push(badge)
-            console.log(req.user)
+            //console.log(req.user)   
         })
         
 
