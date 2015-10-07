@@ -60,7 +60,7 @@ app.use(methodOverride(function(req, res){
 // routes ======================================================================
 require('./routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-//adding in seed data
+// adding in seed data
 // var firstLog = new Log({
 //   name: 'My first swinging session',
 //   date: '01/04/2001',
