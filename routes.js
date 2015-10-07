@@ -74,31 +74,38 @@ module.exports = function(app, passport) {
                 if(err) console.log(err)
                 // console.log(badge)
                 req.user.local.badges.push(badge)
-                req.user.save(function(err){
+
+                req.user.save(function(err, user){
                     if(err) console.log(err)
-                    console.log('user saved')
+                        User.find({}).populate('local.badges').exec(function(err, users){
+                            console.log(users[0].local.badges[0].name)
+                            console.log(users[0].local.badges[0].image)
+                        })
+                    // User.findOne(req.user).populate('local.badges.name').exec(function(err, users){
+                    //     console.log(user.local.badges[0].name)
+                    })
+                    
                 })
                 //console.log(req.user)   
-            })
+            
     }
 
 // var userBadgesObjects = []
 
-function createBadgeObjectArray(){
-    var userBadges = req.user.local.badges
-    console.log(userBadges)
-    for (var i=0; i<userBadges.length;i++ ) {
-        Badge.findById(userBadges[i], function(err, badge){
-            if (err) console.log (err)
-            userBadges.populate(badge)
-            // userBadgesObjects.push(badge)
-            //console.log(userBadgesObjects)
-        }) 
-    }
-}
+// function createBadgeObjectArray(){
+//     var userBadges = req.user.local.badges
+//     console.log(userBadges)
+//     for (var i=0; i<userBadges.length;i++ ) {
+//         Badge.findById(userBadges[i], function(err, badge){
+//             if (err) console.log (err)
+//             userBadges.populate(badge)
+//             // userBadgesObjects.push(badge)
+//             //console.log(userBadgesObjects)
+//         }) 
+//     }
+// }
 
-    console.log(userBadgesObjects)
-    res.render('badges_views/showbadges', {userBadges: userBadges})
+    // res.render('badges_views/showbadges', {userBadges: userBadges})
         
         
         
