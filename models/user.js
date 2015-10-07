@@ -10,7 +10,7 @@ var userSchema = new mongoose.Schema({
         password     : String,
         discipline   : String,
         logs: [Log.schema],
-        badges: {type: mongoose.Schema.ObjectId, ref: 'Badge'}
+        badges: [{type: mongoose.Schema.ObjectId, ref: 'Badge'}]
     },
     facebook         : {
         id           : String,
