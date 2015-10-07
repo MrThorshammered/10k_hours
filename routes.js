@@ -27,19 +27,19 @@ module.exports = function(app, passport) {
         res.render('logs_views/index', { userLogs: userLogs });
     })
 
-    //NEW
+    //NEW LOG
     app.get('/logs/new', isLoggedIn, function(req,res){
         res.render('logs_views/new')
     })
 
-    //CREATE
+    //CREATE LOG
     app.post('/logs', isLoggedIn, function(req,res){
     Log.create(req.body, function(err,log){
         console.log(req.body)
         if(err){
             res.send('error' + err)
         } else{
-            user = req.user
+            var user = req.user
             console.log('user:'+ user)
             
             console.log('log:'+ log)
@@ -55,7 +55,7 @@ module.exports = function(app, passport) {
 })
 
 
-    //SHOW
+    //SHOW LOG
     app.get('/logs/:id', isLoggedIn, function(req, res){
         console.log(req.params)
         // var userLogs = req.user.local.logs
@@ -67,7 +67,7 @@ module.exports = function(app, passport) {
 
     })
 
-    //EDIT
+    //EDIT LOG
     app.get('/logs/:id/edit', isLoggedIn, function(req, res){
         // var userLogs = req.user.local.logs
         // userLogs.findById(this.id)
@@ -80,13 +80,30 @@ module.exports = function(app, passport) {
        });
     })
 
-    //UPDATE
+    //UPDATE LOG
     app.post('/logs/:id', isLoggedIn, function(req,res){
-        Log.findByIdAndUpdate(req.params.id, req.body, function(err,log){
+
+        var log = req.user.local.logs.id(req.params.id);
+        console.log(req.body)
+        log.name = req.body.name
+
+        req.user.save(function (err) {
             if(err) console.log(err)
+            console.log('user saved')
+            // log.save(function(err) {
+            //     if(err) console.log(err)
+            //     console.log('log saved')
+            Log.findByIdAndUpdate(req.params.id, req.body, function(err,log){
+                if(err) console.log(err) 
+                })
             res.redirect(req.params.id) 
-        })
-    })
+            })
+            
+        });
+
+
+       
+   
 
     //DELETE
     app.delete('/logs/:id', isLoggedIn, function(req,res){
@@ -102,12 +119,6 @@ module.exports = function(app, passport) {
             res.redirect('/logs') 
         });
     })
-
-
-
-
-
-
 
     // =====================================
     // HOME PAGE (with login links) ========
