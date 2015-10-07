@@ -6,20 +6,18 @@ var mongoose = require('mongoose');
 
 app.use(methodOverride('_method'));
 
-    //=========
-    //LOGS
-    //=========
-    // var logsController = require('./controllers/logs');
-    // var logsRouter = express.Router();
-
-    // logsRouter.route('/logs')
-    // .get(logsController.allLogs);
+   
+    
 
 module.exports = function(app, passport) {
 
     var Log = mongoose.model("Log");
     var User = mongoose.model("User");
     var Badge = mongoose.model("Badge")
+
+    //=========
+    //BADGES
+    //=========    
 
     //SHOW ALL BADGES IN DATABASE (NOT WITH USER)
 
@@ -30,6 +28,29 @@ module.exports = function(app, passport) {
             res.render('allbadges', {badges: badges})
         })
     })
+
+    //SHOW BADGES FOR A USER
+    app.get('/badges', isLoggedIn, function(req,res){
+        // console.log(req.user)
+
+        Badge.findById('5614f3df85ffa83c2d9952bc', function(err, badge){
+            if(err) console.log(err)
+            console.log(badge)
+            req.user.local.badges.push(badge)
+            console.log(req.user)
+        })
+        
+
+
+
+        // var userBadges = req.user.local.badges
+        // console.log(userBadges)
+        // res.render('badges/index', { userBadges: userBadges });
+    })
+
+    //=========
+    //LOGS
+    //=========
 
     //SHOW ALL LOGS FOR THE LOGGED IN USER
     app.get('/logs', isLoggedIn, function(req,res){ 
