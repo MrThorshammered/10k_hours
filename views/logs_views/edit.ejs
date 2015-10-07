@@ -1,0 +1,26 @@
+<fieldset>
+  <legend>Add a log</legend>
+  <form method="POST" action="/logs/<%= log.id %>">
+    <div class="form-group col-md-4">
+      <input name="name"  class="form-control" placeholder="name" value="<%=log.name%>"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input name="date" class="form-control" placeholder="date" value="<%=log.date%>"/>
+    </div> 
+    <div class="form-group col-md-4">
+      <input name="type" class="form-control" placeholder="type" value="<%=log.type%>"/>
+    </div>
+    <div class="form-group col-md-4">
+      <input name="hours" class="form-control" placeholder="hours" value="<%=log.hours%>"/>
+    </div>
+     <div class="form-group col-md-4">
+      <input name="notes" class="form-control" placeholder="notes" value="<%=log.notes%>"/>
+    </div>
+     <div class="form-group col-md-4">
+      <input name="video" class="form-control" placeholder="video" value="<%=log.video%>"/>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="submit" class="btn btn-success col-md-12">Add log</button>
+    </div>
+  </form>
+</fieldset>

@@ -1,0 +1,68 @@
+body{
+	background: linear-gradient(45deg, #ffc387 3%,#ffc387 14%,#ffa245 80%);
+	background-repeat: repeat-y;
+	color: #C13100;
+}
+
+.form-control{
+	color: #C13100;
+	background-color: #FFFBD0;
+}
+
+.btn-lg{
+	background-color:  #FF9900;
+}
+
+.well{
+	background-color: #FFFBD0;
+	position: fixed;
+	left: 30%;
+	width: 40%;
+}
+
+.text-primary{
+	color: #C13100;
+}
+
+.btn-primary{
+	background-color:  #FF9900;
+}
+
+.btn-default{
+	background-color:  #FF9900;
+	color: white;
+}
+a{
+	color: #C13100;
+}
+
+#log-btn{
+		font-weight: bold;
+		padding-left: 10px;
+}
+
+img{
+	border: solid #C13100 5px;
+	border-radius: 25px;
+	width: 100px;
+	height: 100px;
+	vertical-align: bottom;
+	margin-bottom: 15px;
+}
+
+h1{
+	display: inline-block;
+	padding-right: 10px;
+	padding-left: 10px;
+	vertical-align: bottom;
+	
+}
+
+#logout-btn{
+	vertical-align: bottom;
+	margin-bottom: 15px;
+}
+
+
+
+

@@ -1,0 +1,33 @@
+body{
+	background-image: url('../images/fallingleaves.gif');
+	background-size: cover;
+}
+
+.jumbotron{
+	opacity: .85;
+	width: 45%;
+	position: fixed;
+	left: 27%;
+	background-color: #9CBA7F;
+	border-radius: 25px;
+
+}
+
+.btn-default {
+
+	opacity: .99;
+
+	background-color: #385E31;
+	color: white;
+}
+
+h1{
+	/*display: inline-block;*/
+	vertical-align: bottom;
+	padding-bottom: 20px;
+}
+
+#logo{
+	width: 200px;
+	height: 200px;
+}
