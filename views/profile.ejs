@@ -2,9 +2,10 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
+    <title>10k</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
     <style>
         body        { padding-top:80px; word-wrap:break-word; }
     </style>
@@ -13,7 +14,14 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+    <!-- adding the username and image to the top of the screen -->
+    <% if (user.facebook.token) { %>
+
+     <img src="<%= user.facebook.user_photos %>">
+        <h1><%= user.facebook.name %></h1>
+
+         <% } %>
+
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
@@ -25,52 +33,39 @@
         <!-- FACEBOOK INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
-
-                    <% if (user.facebook.token) { %>
-                    <p>
-                        <img src="<%= user.facebook.user_photos %>"><br>
-                        <%= user.facebook.name %><br>
-                        <strong>email</strong>: <%= user.facebook.email %><br>
-                        <strong>Discipline</strong>: <%= user.local.discipline %><br>
-                    </p>
-                
-                        
-                     
-
-                    <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
-                <% } else { %>
-                    <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
-                <% } %>
-
-            </div>
-        </div>
-
-    </div>
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
-
-                    <% if (user.local.email) { %>
+            <h1>Progress: placeholder</h1>
+              <% if (user.local.email) { %>
                     <p>
                         <strong>Screen name</strong>: <%= user.local.screen_name %><br>
                         <strong>Discipline</strong>: <%= user.local.discipline %><br>
-                        <strong>id</strong>: <%= user._id %><br>
                         <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
                     </p>
+                    <a class="btn btn-primary" id="log-btn" href="/logs">LOGS</a><br>
                     
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                <% } else { %>
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
                 <% } %>
+
+                <h1>Badges: placeholder</h1>
+
+                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+
+                    <% if (user.facebook.token) { %>
+                
+                    <a href="/unlink/facebook" class="btn btn-primary">Unlink From Facebook</a>
+                <% } else { %>
+                    <h3>To Add A Profile Picture Please:</h3>
+                    <a href="/connect/facebook" class="btn btn-primary">Connect To Facebook</a>
+                <% } %>
+                
+
+                  
 
             </div>
         </div>
 
     </div>
-<a href="/logs">LOGS</a>
+
+    </div>
+
 </div>
 </body>
 </html>
