@@ -4,9 +4,18 @@ body{
 	color: #C13100;
 }
 
+
 .form-control{
 	color: #C13100;
 	background-color: #FFFBD0;
+}
+
+.discipline-form{
+	color: #C13100;
+	background-color: #FFFBD0;
+	width: 400px;
+	display: block;
+	margin: 0 auto;
 }
 
 .btn-lg{
@@ -63,6 +72,15 @@ h1{
 	margin-bottom: 15px;
 }
 
+#discipline-header, #facebook-name, .have-account{
+	display: block;
+	text-align: center
+}
+
+#facebook-pic, #discipline-button{
+	display: block;
+	margin: 0 auto;
+}
 
 
 
