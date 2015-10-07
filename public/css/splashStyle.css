@@ -1,0 +1,32 @@
+body{
+	background-image: url('../images/seasonsChange.gif');
+	background-size: cover;
+}
+
+.jumbotron{
+	opacity: .85;
+	width: 75%;
+	position: fixed;
+	left: 15%;
+	background-color: #9CBA7F;
+
+}
+
+.btn-default {
+
+	opacity: .99;
+
+	background-color: #385E31;
+	color: white;
+}
+
+h1{
+	display: inline-block;
+	vertical-align: bottom;
+	padding-bottom: 20px;
+}
+
+#logo{
+	width: 200px;
+	height: 200px;
+}
