@@ -42,6 +42,8 @@ a{
 }
 
 img{
+	border: solid #C13100 5px;
+	border-radius: 25px;
 	width: 100px;
 	height: 100px;
 	vertical-align: bottom;
