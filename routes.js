@@ -80,6 +80,11 @@ module.exports = function(app, passport) {
                         User.find({}).populate('local.badges').exec(function(err, users){
                             console.log(users[0].local.badges[0].name)
                             console.log(users[0].local.badges[0].image)
+                            res.json({
+                                badgename: users[0].local.badges[0].name
+
+
+                            })
                         })
                     // User.findOne(req.user).populate('local.badges.name').exec(function(err, users){
                     //     console.log(user.local.badges[0].name)
