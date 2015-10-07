@@ -252,6 +252,9 @@ teacher.save(function(err, badge){
     console.log("badge saved!")
 })
 
+//code that adds a badge to a user depending on criteria
+
+
 // launch ======================================================================
 app.listen(port);
 console.log('The magic happens on port ' + port);
