@@ -6,8 +6,6 @@ var mongoose = require('mongoose');
 
 app.use(methodOverride('_method'));
 
-   
-    
 
 module.exports = function(app, passport) {
 
@@ -70,47 +68,59 @@ module.exports = function(app, passport) {
 
     }
 
-    // BADGES = {
-    //     '1': ['badge 1'],
-    //     '2': ['badge 1', '2'],
-    //     '3': ['badge 1', 2,3],
-    //     '4': ['badge 1',2,3,4]
-    // }
 
-
-
-
-        // console.log(req.user)
-
-
-function giveBadgeToUser(badgename) {
-    Badge.findOne({ name: badgename }, function(err, badge){
-            if(err) console.log(err)
-            console.log(badge)
-            req.user.local.badges.push(badge)
-            req.user.save(function(err){
+    function giveBadgeToUser(badgename) {
+        Badge.findOne({ name: badgename }, function(err, badge){
                 if(err) console.log(err)
-                console.log('user saved')
-            })
-            //console.log(req.user)   
-        })
-}
+                // console.log(badge)
+                req.user.local.badges.push(badge)
+
+                req.user.save(function(err, user){
+                    if(err) console.log(err)
+                        User.find({}).populate('local.badges').exec(function(err, users){
+                            console.log(users[0].local.badges[0].name)
+                            console.log(users[0].local.badges[0].image)
+                            res.json({
+                                badgename: users[0].local.badges[0].name
 
 
-        // Badge.findById('5614f3df85ffa83c2d9952bc', function(err, badge){
-        //     if(err) console.log(err)
-        //     //console.log(badge)
-        //     req.user.local.badges.push(badge)
-        //     //console.log(req.user)   
-        // })
+                            })
+                        })
+                    // User.findOne(req.user).populate('local.badges.name').exec(function(err, users){
+                    //     console.log(user.local.badges[0].name)
+                    })
+                    
+                })
+                //console.log(req.user)   
+            
+    }
+
+// var userBadgesObjects = []
+
+// function createBadgeObjectArray(){
+//     var userBadges = req.user.local.badges
+//     console.log(userBadges)
+//     for (var i=0; i<userBadges.length;i++ ) {
+//         Badge.findById(userBadges[i], function(err, badge){
+//             if (err) console.log (err)
+//             userBadges.populate(badge)
+//             // userBadgesObjects.push(badge)
+//             //console.log(userBadgesObjects)
+//         }) 
+//     }
+// }
+
+    // res.render('badges_views/showbadges', {userBadges: userBadges})
         
+        
+        
+})
+//ROUTE FOR SHOWING THE BADGES FOR THE LOGGED IN USER
 
-
-
-        // var userBadges = req.user.local.badges
-        // console.log(userBadges)
-        // res.render('badges/index', { userBadges: userBadges });
-    })
+    
+        
+   
+    
 
     //=========
     //LOGS
