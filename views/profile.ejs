@@ -49,16 +49,27 @@
         <div>
             <div class = "profile-info-container">
             <h2>Progress:</h2>
+            <h2> Total hours logged: 
+                 <% var totalhours = 0 %>
+
+                <% var logs = user.local.logs %>
+
+                <% for (var i=0; i<logs.length;i++ ) { %>
+                <%  var hours = logs[i].hours %>
+                <%    totalhours += hours %>
+                <%    } %>
+                <%= totalhours %> </h2>
+
 
                 <h2>Discipline: <%= user.local.discipline %> <a href="/add-discipline" class="btn btn-primary">Change discipline</a></h2>
                 <h2>Logs: <a href="/logs" class="btn btn-primary">My logs</a> <a href="/logs/new" class="btn btn-primary">New log</a></h2>
                 <h2> Latest log: </h2>
-                <h3 class = "log-list-info"> Name: <%= user.local.logs[(user.local.logs.length)-1].name %> </h3>
-                <h3 class = "log-list-info"> Type: <%= user.local.logs[(user.local.logs.length)-1].type %> </h3>
-                <h3 class = "log-list-info"> Date: <%= user.local.logs[(user.local.logs.length)-1].date.getDate() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getMonth() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getYear() %> </h3>
-                <h3 class = "log-list-info"> Hours logged: <%= user.local.logs[(user.local.logs.length)-1].hours %> </h3>
+                <h3 class = "log-list-info"> <strong>Name:</strong> <%= user.local.logs[(user.local.logs.length)-1].name %> </h3>
+                <h3 class = "log-list-info"> <strong>Type:</strong> <%= user.local.logs[(user.local.logs.length)-1].type %> </h3>
+                <h3 class = "log-list-info"> <strong>Date:</strong> <%= user.local.logs[(user.local.logs.length)-1].date.getDate() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getMonth() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getYear() %> </h3>
+                <h3 class = "log-list-info"> <strong>Hours logged:</strong> <%= user.local.logs[(user.local.logs.length)-1].hours %> </h3>
 
-                <h2>Badges: <a href="/badges" class="btn btn-primary">My badges</a></h2>
+                <h2>Badges: <%=(user.local.badges.length)-1%><a href="/badges" class="btn btn-primary">See all badges</a></h2>
 
 
                 <!-- h3><span class="fa fa-facebook"></span> Facebook</h3> -->
