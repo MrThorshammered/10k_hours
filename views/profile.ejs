@@ -27,9 +27,27 @@
 
     </style>
 </head>
+   
 <body class="profile-background">
 
-<div class="big-jumbo jumbotron">
+ <nav class= "nav-bar-customising navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><%= user.facebook.name %></a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Logs</a></li> 
+        <li><a href="#">Badges</a></li> 
+        <li><a href="#">Sign out</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="big-jumbo jumbotron">
 
     <div class="page-header text-center">
     <!-- adding the username and image to the top of the screen -->
@@ -83,10 +101,8 @@
                 
                 <h2>Logs: <a href="/logs" class="btn btn-primary">My logs</a> <a href="/logs/new" class="btn btn-primary">New log</a></h2>
                 <h2> Latest log: </h2>
-                <h3 class = "log-list-info"> <strong>Name:</strong> <%= user.local.logs[(user.local.logs.length)-1].name %> </h3>
-                <h3 class = "log-list-info"> <strong>Type:</strong> <%= user.local.logs[(user.local.logs.length)-1].type %> </h3>
-                <h3 class = "log-list-info"> <strong>Date:</strong> <%= user.local.logs[(user.local.logs.length)-1].date.getDate() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getMonth() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getYear() %> </h3>
-                <h3 class = "log-list-info"> <strong>Hours logged:</strong> <%= user.local.logs[(user.local.logs.length)-1].hours %> </h3>
+                <p class = "log-list-info"> <strong>Name:</strong> <%= user.local.logs[(user.local.logs.length)-1].name %> </p>
+                <p class = "log-list-info"> <strong>Date:</strong> <%= user.local.logs[(user.local.logs.length)-1].date.getDate() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getMonth() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getYear() %> </p>
 
                 <h2>Badges: <%=(user.local.badges.length)-1%><a href="/badges" class="btn btn-primary">See all badges</a></h2>
 

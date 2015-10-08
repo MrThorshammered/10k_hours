@@ -177,3 +177,20 @@ h1{
 	display: inline-block;
 }
 
+.container-fluid{
+	color: #333333; 
+}
+
+.nav-bar-customising{
+	margin-top: -80px;
+	background-color: rgba(156,186,127, 0.9);
+	border-radius: 0px;
+	border: 0;
+	min-height: 40px ;
+	color: #333333;
+}
+
+.navbar .nav > li > a {
+    color:  #333333;
+}
+
