@@ -1,16 +1,34 @@
-hi there this page shows all your logs
-<link rel="stylesheet" type="text/css" href="" src="../../public/css/profile.css">
+<!DOCTYPE html>
+<html>
+<head>
+	<title>10K</title>
 
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> 
+
+	<link rel="stylesheet" type="text/css" href="../css/logsIndex.css">
+
+</head>
+
+<body>
+<div class="jumbotron text-center">
+<h2>hi there this page shows all your logs</h2>
 <% for(var i=0; i< userLogs.length; i++) {  %>
 
-<a href="logs/<%=userLogs[i].id %>"><%=userLogs[i].name %></a>
+<a class="btn btn-default" id="log_entry" href="logs/<%=userLogs[i].id %>"><%=userLogs[i].name %></a>
 
   <form method="POST" action="/logs/<%=userLogs[i].id %>">
     <div class="form-group col-md-4">
       <input type="hidden" name="_method" value="DELETE">
     </div>
      <div class="form-group col-md-4">
-      <button type="submit" class="btn btn-success col-md-12">Delete log</button>
+      <button type="submit" class="btn btn-success">Delete log</button>
     </div>
   </form>
-<% } %>
+<% } %><br>
+
+<a href="logs/new" id="newLog-btn" class="btn btn-default">New Log</a>
+</div>
+	
+</body>
+</html>
