@@ -3,9 +3,11 @@
 <head>
 	<link rel="stylesheet" href="../css/badge.css">
 	<title>10K</title>
+
 </head>
 <body>
-	<div class="header"><h1>Welcome to your badges cabinet</h1></div>
+
+	<div class="header"><h1>Welcome to your badges cabinet</h1></div><a href="/profile">Close cabinet</a>
 
 
 <%var uniqueBadge = userBadges.filter(function(elem, pos,arr) {
@@ -14,8 +16,12 @@
 %>
 
 	<% for(var i=0; i< uniqueBadge.length; i++) {  %>
-	<img class=".col-5" src="../<%=uniqueBadge[i].image %>" alt="">
+	<div class="badge-position">
+	<img class=".col-5" src="../<%=uniqueBadge[i].image %>" alt=""><br>
+	<h4><%=uniqueBadge[i].name%></h4>
+	</div>
 	<% } %>
+
 
 </body>
 </html>
