@@ -9,11 +9,12 @@ body{
 #newLog-btn{
 	background-color: #FF9900;
 	color: white;
+	position: relative;
+	left: 80%;
 }
 
 .jumbotron{
 	/*opacity: .85;*/
-
 	width: 45%;
 	position: fixed;
 	left: 27%;
@@ -23,9 +24,18 @@ body{
 	
 }
 
-#log_entry{
-	background-color: #907E03;
-	color: white;
-	border: solid green 1px;
+.log_entry{
+	float: left;
+}
+.position{
+	display: inline-block;
+	float: left;
+}
 
+#log_entry_btn{
+	margin-left: 15px;
+		position: relative;
+	color: #006400;
+	font-weight: bold;
+	
 }
