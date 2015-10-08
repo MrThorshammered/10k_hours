@@ -6,11 +6,24 @@ body{
 }
 
 img{
-	padding-left: 25px;
+	padding-left: 50px;
 	padding-right: 25px;
-	padding-top: 30px;
+	
 }
 
 div{
 	text-align: center;
+}
+
+.header{
+	background-image: url('../images/metal.jpg');
+	background-size: cover;
+	margin-bottom: -15px;
+	margin-top: -20px;
+	width: 800px;
+	border-radius: 15px;
+	position: relative;
+	left: 20%;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
 }
