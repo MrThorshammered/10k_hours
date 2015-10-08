@@ -1,0 +1,56 @@
+body{
+	background-image: url("../images/logs.jpg");
+	background-size: 1500px 750px;
+	background-repeat: no-repeat;
+	color: #333333;
+}
+
+#newLog-btn{
+	background-color: #FF9900;
+	color: white;
+	position: relative;
+	left: 0%;
+  margin-left: 15px;
+}
+
+.jumbotron {
+	min-width:400px;
+  opacity:1;
+  width: 45%;
+  position: fixed;
+  left: 27%;
+  height: 550px;
+  background-color: rgba(156,186,127, 0.9);
+  border-radius: 25px;
+  overflow-y: scroll;
+}
+
+.log_entry{
+
+	/*float: left;*/
+}
+.position{
+	display: inline-block;
+	float: left;
+}
+
+#log_entry_btn{
+	margin-left: 15px;
+		position: relative;
+	color: #006400;
+	font-weight: bold;
+}
+
+.nav-bar-customising{
+	margin-top: 0px;
+	background-color: rgba(156,186,127, 0.9);
+	border-radius: 0px;
+	border: 0;
+	min-height: 40px ;
+	color: #333333;
+}
+
+.navbar .nav > li > a {
+    color:  #333333;
+}
+

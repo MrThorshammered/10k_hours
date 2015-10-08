@@ -9,8 +9,6 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
 var methodOverride = require('method-override')
-app.use(methodOverride('_method'));
-
 
 //var router = express.Router(); taken out for now as routing was set up differently by Sam
 
@@ -27,17 +25,24 @@ require('./config/passport')(passport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
-app.use(cookieParser()); // read cookies (needed for auth)
+
 app.use(bodyParser()); // get information from html forms
 app.use( express.static( "public" ) );
 app.set('view engine', 'ejs'); // set up ejs for templating
+
+app.use(cookieParser()); // read cookies (needed for auth)
+// app.use(session({cookie: { maxAge: 60000 }}));
+app.use(flash()); // use connect-flash for flash messages stored in session
+
 
 // required for passport
 app.use(session({ secret: 'samjackmike' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
 app.use(express.static(__dirname + '/public'));
+
+app.use(methodOverride('_method'));
+
 
 var Log = require('./models/log')
 var Badge = require('./models/badge')
@@ -54,51 +59,17 @@ app.use(methodOverride(function(req, res){
   }
 }))
 
+// app.use(function() {
+//   app.use(express.cookieParser('keyboard cat'));
+//   app.use(express.session({ cookie: { maxAge: 60000 }}));
+//   app.use(flash());
+// });
+
 
 
 
 // routes ======================================================================
 require('./routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-
-// adding in seed data
-// var firstLog = new Log({
-//   name: 'My first swinging session',
-//   date: '01/04/2001',
-//   type: 'Practice',
-//   hours: 2,
-//   notes: 'It was hard',
-//   video: 'www.myvideo.com'
-// })
-
-// firstLog.save(function(err, log){
-//   if (err) console.log(err)
-//     console.log("first log saved")
-// })
-
-// var Badge1 = new Badge({
-//   name: "100 hours logged!",
-//   image: "www.penis.com"
-// })
-
-// Badge1.save(function(err, badge){
-//   if (err) console.log(err)
-//     console.log("badge saved!")
-// })
-// var Jack = new User({
-//   local: {
-//     name: 'Jack Somervell',
-//     email: 'jack@jack.com',
-//     password: 'password',
-//     discipline: 'Golf',
-//     badges: Badge1,
-//     logs: firstLog
-//   }
-// })
-
-// Jack.save(function(err, user){
-//   if (err) console.log(err)
-//     console.log("Jack saved")
-// })
 
 //***************All badge seed data******************
 

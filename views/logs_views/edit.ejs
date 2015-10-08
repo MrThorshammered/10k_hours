@@ -1,26 +1,69 @@
-<fieldset>
-  <legend>Add a log</legend>
-  <form method="POST" action="/logs/<%= log.id %>">
-    <div class="form-group col-md-4">
-      <input name="name"  class="form-control" placeholder="name" value="<%=log.name%>"/>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>10K</title>
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+  <link rel="stylesheet" type="text/css" href="/css/splashStyle.css">
+  <link rel="stylesheet" type="text/css" href="/css/log.css">
+
+</head>
+
+<body class='edit-log-body'>
+
+<nav class= "nav-bar-customising navbar navbar-default">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home |</a></li>
+        <li><a href="/profile">Profile |</a></li>
+        <li><a href="/logs/new">New log |</a></li>
+        <li class="active"><a href="/logs">Log history |</a></li> 
+        <li><a href="/badges">Badges |</a></li> 
+        <li><a href="/add-discipline">Change discipline |</a></li> 
+        <li><a href="/logout">Sign out |</a></li> 
+      </ul>
     </div>
-    <div class="form-group col-md-4">
-      <input name="date" class="form-control" placeholder="date" value="<%=log.date%>"/>
-    </div> 
-    <div class="form-group col-md-4">
-      <input name="type" class="form-control" placeholder="type" value="<%=log.type%>"/>
-    </div>
-    <div class="form-group col-md-4">
-      <input name="hours" class="form-control" placeholder="hours" value="<%=log.hours%>"/>
-    </div>
-     <div class="form-group col-md-4">
-      <input name="notes" class="form-control" placeholder="notes" value="<%=log.notes%>"/>
-    </div>
-     <div class="form-group col-md-4">
-      <input name="video" class="form-control" placeholder="video" value="<%=log.video%>"/>
-    </div>
-    <div class="form-group col-md-4">
-      <button type="submit" class="btn btn-success col-md-12">Add log</button>
-    </div>
-  </form>
-</fieldset>
+  </div>
+</nav>
+  <div class="jumbotron">
+    
+    <fieldset>
+    <legend>Edit log</legend>
+      <form method="POST" action="/logs/<%= log.id %>">
+        <div class="form-group">
+          <label for="name-field">Session name</label>
+          <input name="name"  class="form-control" placeholder="name" id="name-field" value="<%=log.name%>"/>
+        </div>
+        <div class="form-group">
+          <label for="date-field">Date</label>
+          <input name="date" class="form-control" placeholder="date" id='date-field' value="<%=log.date%>"/>
+        </div> 
+        <div class="form-group">
+          <label for="type-field">Type of practice</label>
+          <input name="type" class="form-control" id="type-field" placeholder="type" value="<%=log.type%>"/>
+        </div>
+        <div class="form-group">
+          <label for="hours-field">Duration(hours)</label>
+          <input name="hours" class="form-control" placeholder="hours" id="hours-field" value="<%=log.hours%>"/>
+        </div>
+         <div class="form-group">
+          <label for="notes-field">Notes</label>
+          <input name="notes" class="form-control" placeholder="notes" id="notes-field" value="<%=log.notes%>"/>
+        </div>
+          <label for="video-field">Video URL</label>
+          <div class="form-group">
+          <input name="video" class="form-control" placeholder="video URL" value="<%=log.video%>" id="video-field">
+        </div>
+        <div class="form-group col-md-4">
+          <button type="submit" class="btn btn-success col-md-12">Update log</button>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+
+</body>
+</html>
+
