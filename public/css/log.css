@@ -20,7 +20,14 @@ label {
 
 }
 
+.show-log-body {
+  background-image: url('../images/autumn-scene2.jpg');
+  background-size: cover;
+
+}
+
 .jumbotron {
+  opacity:1;
   width: 45%;
   position: fixed;
   left: 27%;
