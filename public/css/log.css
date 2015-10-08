@@ -1,3 +1,23 @@
+body {
+  padding-top:40px;
+}
+
 h2 {
   text-align: center;
 }
+
+legend {
+  font-weight:800;
+}
+
+label {
+  font-weight: normal;
+}
+
+.edit-log-body {
+  background-image: url('../images/autumn-scene.jpg');
+  background-size: cover;
+
+}
+
+
