@@ -9,7 +9,8 @@ body{
 	background-color: #FF9900;
 	color: white;
 	position: relative;
-	left: 80%;
+	left: 0%;
+  margin-left: 15px;
 }
 
 .jumbotron {
@@ -25,7 +26,8 @@ body{
 }
 
 .log_entry{
-	float: left;
+
+	/*float: left;*/
 }
 .position{
 	display: inline-block;
@@ -51,3 +53,4 @@ body{
 .navbar .nav > li > a {
     color:  #333333;
 }
+
