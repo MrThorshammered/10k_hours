@@ -89,8 +89,8 @@ module.exports = function(app, passport) {
         if(err) console.log(err)
         User.find({_id: req.user._id}).populate('local.badges').exec(function(err, users){
             console.log(users)
-            res.json(
-            users[0].local.badges
+            res.render(
+            'badges_views/showbadges',{userBadges: users[0].local.badges}
             )
         })
         })
