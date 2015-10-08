@@ -10,7 +10,6 @@ var passport = require('passport');
 var flash    = require('connect-flash');
 var methodOverride = require('method-override')
 
-
 //var router = express.Router(); taken out for now as routing was set up differently by Sam
 
 var morgan       = require('morgan');
