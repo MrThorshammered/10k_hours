@@ -27,11 +27,12 @@ label {
 }
 
 .jumbotron {
+  min-width:400px;
   opacity:1;
   width: 45%;
   position: fixed;
   left: 27%;
-  height: 500px;
+  height: 550px;
   background-color: rgba(156,186,127, 0.9);
   border-radius: 25px;
   overflow-y: scroll;
