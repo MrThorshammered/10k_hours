@@ -4,9 +4,18 @@ body{
 	color: #C13100;
 }
 
+
 .form-control{
 	color: #C13100;
 	background-color: #FFFBD0;
+}
+
+.discipline-form{
+	color: #C13100;
+	background-color: #FFFBD0;
+	width: 400px;
+	display: block;
+	margin: 0 auto;
 }
 
 .btn-lg{
@@ -63,6 +72,39 @@ h1{
 	margin-bottom: 15px;
 }
 
+#discipline-header, #facebook-name, .have-account{
+	display: block;
+	text-align: center;
+	color: #333333;
+}
+
+#facebook-name{
+	padding-bottom: 20px;
+	color: #333333;
+	font-size: 30px
+}
 
 
 
+#facebook-login-page-background{
+	background-image: url('../images/autumnal_background_2.jpg');
+	background-size: cover
+
+}
+
+
+.jumbotron{
+	/*opacity: .85;*/
+	width: 45%;
+	position: fixed;
+	left: 27%;
+	background-color: rgba(156,186,127, 0.9);
+	border-radius: 25px;
+	
+}
+
+#facebook-pic, #discipline-button{
+	display: block;
+	margin: 0 auto;
+	opacity: 1;
+}
