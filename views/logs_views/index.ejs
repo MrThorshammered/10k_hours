@@ -14,12 +14,11 @@
 <div class="jumbotron text-center">
 <h2>Logs</h2>
 <h3>This is a list of all your logs</h3>
+
 <% for(var i=0; i< userLogs.length; i++) {  %>
-
-
-<div class="log_entry">
-<a id="log_entry_btn" href="logs/<%=userLogs[i].id %>"><%=userLogs[i].name %>:</a>
-Date: <%= userLogs[i].date.getDate()%>/<%=userLogs[i].date.getMonth()+1%>/<%= userLogs[i].date.getYear()+1900%><br>
+  <div class="log_entry">
+  <a id="log_entry_btn" href="logs/<%=userLogs[i].id %>"><%=userLogs[i].name %>:</a>
+  Date: <%= userLogs[i].date.getDate()%>/<%=userLogs[i].date.getMonth()+1%>/<%= userLogs[i].date.getYear()+1900%><br>
 
   <form method="POST" action="/logs/<%=userLogs[i].id %>">
     <div class="form-group col-md-4">

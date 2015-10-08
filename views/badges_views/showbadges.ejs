@@ -1,6 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="../css/badge.css">
+	<title>10K</title>
+</head>
+<body>
+	<div class="header"><h1>Welcome to your badges cabinet</h1></div>
 
 
-<h1> Hello </h1>
+<%var uniqueBadge = userBadges.filter(function(elem, pos,arr) {
+    return arr.indexOf(elem) == pos;
+  }); 
+%>
 
+	<% for(var i=0; i< uniqueBadge.length; i++) {  %>
+	<img class=".col-5" src="../<%=uniqueBadge[i].image %>" alt="">
+	<% } %>
 
+</body>
+</html>
 
