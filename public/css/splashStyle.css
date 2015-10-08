@@ -32,3 +32,16 @@ h1{
 	width: 200px;
 	height: 200px;
 }
+
+.nav-bar-customising{
+	margin-top: -40px;
+	background-color: rgba(156,186,127, 0.9);
+	border-radius: 0px;
+	border: 0;
+	min-height: 40px ;
+	color: #333333;
+}
+
+.navbar .nav > li > a {
+    color:  #333333;
+}
