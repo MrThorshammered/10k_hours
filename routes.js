@@ -29,7 +29,7 @@ module.exports = function(app, passport) {
 
     //SHOW BADGES FOR A USER
     app.get('/badges', isLoggedIn, function(req,res){
-//work out total number of hours
+    //work out total number of hours
         var totalhours = 0
 
         var logs = req.user.local.logs
@@ -89,41 +89,13 @@ module.exports = function(app, passport) {
         if(err) console.log(err)
         User.find({_id: req.user._id}).populate('local.badges').exec(function(err, users){
             console.log(users)
-            res.json(
-            users[0].local.badges
+            res.render(
+            'badges_views/showbadges',{userBadges: users[0].local.badges}
             )
         })
         })
         
-    })  
-    
-
-// var userBadgesObjects = []
-
-// function createBadgeObjectArray(){
-//     var userBadges = req.user.local.badges
-//     console.log(userBadges)
-//     for (var i=0; i<userBadges.length;i++ ) {
-//         Badge.findById(userBadges[i], function(err, badge){
-//             if (err) console.log (err)
-//             userBadges.populate(badge)
-//             // userBadgesObjects.push(badge)
-//             //console.log(userBadgesObjects)
-//         }) 
-//     }
-// }
-
-    // res.render('badges_views/showbadges', {userBadges: userBadges})
-        
-        
-        
-
-//ROUTE FOR SHOWING THE BADGES FOR THE LOGGED IN USER
-
-    
-        
-   
-    
+    })
 
     //=========
     //LOGS
@@ -133,8 +105,15 @@ module.exports = function(app, passport) {
     app.get('/logs', isLoggedIn, function(req,res){ 
          var userLogs = req.user.local.logs
             //res.json(userLogs)
-        res.render('logs_views/index', { userLogs: userLogs });
+        res.render('logs_views/index', {
+            userLogs: userLogs,
+            message: req.flash('test')
+        });
     })
+
+//     app.all('/test', function(req, res){
+//   res.send(JSON.stringify(req.flash('test')));
+// });
 
     //NEW LOG
     app.get('/logs/new', isLoggedIn, function(req,res){
@@ -171,7 +150,8 @@ module.exports = function(app, passport) {
         // req.json(userLogs.this.id)
        Log.findById(req.params.id, function (err, log) {
         if(err) console.log(err)
-        res.json(log)
+        // res.json(log)
+        res.render('logs_views/show',{log:log})
        });
 
     })
@@ -184,7 +164,7 @@ module.exports = function(app, passport) {
         Log.findById(req.params.id, function (err, log) {
         if(err) console.log(err)
         res.render('logs_views/edit', 
-            { log:log }
+            {log:log}
         )
        });
     })
@@ -214,7 +194,7 @@ module.exports = function(app, passport) {
        
    
 
-    //DELETE
+    //DELETE LOG
     app.delete('/logs/:id', isLoggedIn, function(req,res){
         var user = req.user
         var logId = req.params.id
@@ -223,11 +203,14 @@ module.exports = function(app, passport) {
             if(err) console.log(err)
             Log.findByIdAndRemove(logId, function(err, log){
                 if(err) console.log(err)
-                console.log('log deleted')
             })
-            res.redirect('/logs') 
+            req.flash('test', 'it worked');
+            res.redirect('/logs')
         });
     })
+
+
+
 
     // =====================================
     // HOME PAGE (with login links) ========
