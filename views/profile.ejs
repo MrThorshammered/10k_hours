@@ -12,25 +12,31 @@
         body        { padding-top:80px; word-wrap:break-word; }
     </style>
 </head>
-<body>
-<div class="container">
+<body class="profile-background">
+
+<div class="big-jumbo jumbotron">
 
     <div class="page-header text-center">
     <!-- adding the username and image to the top of the screen -->
     <% if (user.facebook.token) { %>
 
-     <img src="<%= user.facebook.user_photos %>">
-        <h1><%= user.facebook.name %></h1>
-
+        <img src="<%= user.facebook.user_photos %>">
+        <label class= "facebook-name"><%= user.facebook.name %></label>
+    
+    <% } else { %>
+        <img src= "../images/generic1.png">
+        <label class= "facebook-name"><%= user.local.screen_name %></label>
          <% } %>
-
-        <a href="/logout" id="logout-btn" class="btn btn-default btn-sm">Logout</a>
-        <% if (user.facebook.token) { %>
+        
+        <div class= "login-unlink-block">
+            <a href="/logout" class="logout-unlink-button btn btn-default btn-sm">Logout</a>
+            <% if (user.facebook.token) { %>
                 
-            <a href="/unlink/facebook" class="btn btn-default btn-sm">Unlink From Facebook</a>
-         <% } else { %>
-             <a href="/connect/facebook" class="btn btn-default btn-sm">Connect To Facebook to add picture</a>
-        <% } %>
+                <a href="/unlink/facebook" class="logout-unlink-button btn btn-default btn-sm">Unlink From Facebook</a>
+             <% } else { %>
+                 <a href="/connect/facebook" class="logout-unlink-button btn btn-default btn-sm">Connect To Facebook to add a profile picture</a>
+            <% } %>
+        </div>
 
     </div>
 
@@ -40,21 +46,20 @@
         <div class="row">
 
         <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-            <h1>Progress: placeholder</h1>
-              <% if (user.local.email) { %>
-                    <p>
-                        <strong>Screen name</strong>: <%= user.local.screen_name %><br>
-                        <strong>Discipline</strong>: <%= user.local.discipline %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                    </p>
-                    <a class="btn btn-primary" id="log-btn" href="/logs">My Logs</a><br>
-                    
-                <% } %>
+        <div>
+            <div class = "profile-info-container">
+            <h2>Progress:</h2>
 
-                <h1>Discipline: <%= user.local.discipline %> <a href="/add-discipline" class="btn btn-primary">Change discipline</a></h1>
-                <h1>Badges: <a href="/badges" class="btn btn-primary">My badges</a></h1>
+                <h2>Discipline: <%= user.local.discipline %> <a href="/add-discipline" class="btn btn-primary">Change discipline</a></h2>
+                <h2>Logs: <a href="/logs" class="btn btn-primary">My logs</a> <a href="/logs/new" class="btn btn-primary">New log</a></h2>
+                <h2> Latest log: </h2>
+                <h3 class = "log-list-info"> Name: <%= user.local.logs[(user.local.logs.length)-1].name %> </h3>
+                <h3 class = "log-list-info"> Type: <%= user.local.logs[(user.local.logs.length)-1].type %> </h3>
+                <h3 class = "log-list-info"> Date: <%= user.local.logs[(user.local.logs.length)-1].date.getDate() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getMonth() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getYear() %> </h3>
+                <h3 class = "log-list-info"> Hours logged: <%= user.local.logs[(user.local.logs.length)-1].hours %> </h3>
+
+                <h2>Badges: <a href="/badges" class="btn btn-primary">My badges</a></h2>
+
 
                 <!-- h3><span class="fa fa-facebook"></span> Facebook</h3> -->
                   
