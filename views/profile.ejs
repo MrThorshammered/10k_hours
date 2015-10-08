@@ -37,11 +37,13 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Logs</a></li> 
-        <li><a href="#">Badges</a></li> 
-        <li><a href="#">Sign out</a></li> 
+        <li class="active"><a href="#">Home |</a></li>
+        <li><a href="/profile">Profile |</a></li>
+        <li><a href="/logs/new">New log |</a></li>
+        <li><a href="/logs">Log history |</a></li> 
+        <li><a href="/badges">Badges |</a></li> 
+        <li><a href="/add-discipline">Change discipline |</a></li> 
+        <li><a href="/logout">Sign out |</a></li> 
       </ul>
     </div>
   </div>
@@ -73,7 +75,7 @@
 
     </div>
 
-    <div class="row">
+    <div class= "profile-info row">
 
 
         <div class="row">
@@ -81,12 +83,13 @@
         <!-- FACEBOOK INFORMATION -->
         <div>
             <div class = "profile-info-container">
-            <h2>Discipline: <%= user.local.discipline %> <a href="/add-discipline" class="btn btn-primary">Change discipline</a></h2>
+            <h2>Discipline: <p><%= user.local.discipline %></p></h2>
             <h2 class="progress-label">Progress:</h2>
                 <div id = "redline">
                     <hr id="thelineitself">
                 </div>
-            <h2> Total hours logged: 
+            <h2> Total hours logged:
+                 <p>
                  <% var totalhours = 0 %>
 
                 <% var logs = user.local.logs %>
@@ -95,16 +98,16 @@
                 <%  var hours = logs[i].hours %>
                 <%    totalhours += hours %>
                 <%    } %>
-                <%= totalhours %> </h2>
+                <%= totalhours %> 
+                </p>
+            </h2>
 
+
+                <h2>Badges: <p> <%=(user.local.badges.length)-1%> </p></h2>
+                <h2> Latest log: <p>"<%= user.local.logs[(user.local.logs.length)-1].name %>" on <%= user.local.logs[(user.local.logs.length)-1].date.getDate() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getMonth() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getYear() %> </p></h2>
+                
 
                 
-                <h2>Logs: <a href="/logs" class="btn btn-primary">My logs</a> <a href="/logs/new" class="btn btn-primary">New log</a></h2>
-                <h2> Latest log: </h2>
-                <p class = "log-list-info"> <strong>Name:</strong> <%= user.local.logs[(user.local.logs.length)-1].name %> </p>
-                <p class = "log-list-info"> <strong>Date:</strong> <%= user.local.logs[(user.local.logs.length)-1].date.getDate() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getMonth() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getYear() %> </p>
-
-                <h2>Badges: <%=(user.local.badges.length)-1%><a href="/badges" class="btn btn-primary">See all badges</a></h2>
 
 
                 <!-- h3><span class="fa fa-facebook"></span> Facebook</h3> -->

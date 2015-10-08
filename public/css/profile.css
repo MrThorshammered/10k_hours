@@ -140,6 +140,7 @@ h1{
 
 .profile-info-container{
 	color: #333333;
+	font-size: 20px;
 }
 
 .log-list-info{
@@ -167,7 +168,7 @@ h1{
   height: 8px;
   transform: rotate(0deg) translateY(0px) translateX(0px);
   width: 100px;
-  border: 1px solid black;
+  border: 1px solid white;
   margin-top: 0px;
   margin-left: 0px;
 
@@ -192,5 +193,15 @@ h1{
 
 .navbar .nav > li > a {
     color:  #333333;
+}
+
+.profile-info {
+	padding-left: 100px;
+}
+
+p {
+	display: inline;
+	text-decoration: none;
+	font-weight: 100;
 }
 
