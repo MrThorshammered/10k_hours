@@ -23,6 +23,13 @@
          <% } %>
 
         <a href="/logout" id="logout-btn" class="btn btn-default btn-sm">Logout</a>
+        <% if (user.facebook.token) { %>
+                
+            <a href="/unlink/facebook" class="btn btn-default btn-sm">Unlink From Facebook</a>
+         <% } else { %>
+             <a href="/connect/facebook" class="btn btn-default btn-sm">Connect To Facebook to add picture</a>
+        <% } %>
+
     </div>
 
     <div class="row">
@@ -44,19 +51,10 @@
                     
                 <% } %>
 
-                <h1>Badges: <a href="/badges" class="btn btn-primary">My Badges</a></h1>
+                <h1>Discipline: <%= user.local.discipline %> <a href="/add-discipline" class="btn btn-primary">Change discipline</a></h1>
+                <h1>Badges: <a href="/badges" class="btn btn-primary">My badges</a></h1>
 
-                <h3><span class="fa fa-facebook"></span> Facebook</h3>
-
-                    <% if (user.facebook.token) { %>
-                
-                    <a href="/unlink/facebook" class="btn btn-primary">Unlink From Facebook</a>
-                <% } else { %>
-                    <h3>To Add A Profile Picture Please:</h3>
-                    <a href="/connect/facebook" class="btn btn-primary">Connect To Facebook</a>
-                <% } %>
-                
-
+                <!-- h3><span class="fa fa-facebook"></span> Facebook</h3> -->
                   
 
             </div>

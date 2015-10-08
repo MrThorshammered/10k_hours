@@ -81,6 +81,7 @@ h1{
 #facebook-name{
 	padding-bottom: 20px;
 	color: #333333;
+	font-size: 30px
 }
 
 
@@ -97,7 +98,7 @@ h1{
 	width: 45%;
 	position: fixed;
 	left: 27%;
-	background-color: rgba(156,186,127, 0.8);
+	background-color: rgba(156,186,127, 0.9);
 	border-radius: 25px;
 	
 }
