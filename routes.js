@@ -284,25 +284,25 @@ module.exports = function(app, passport) {
 
     //CREATE LOG
     app.post('/logs', isLoggedIn, function(req,res){
-    Log.create(req.body, function(err,log){
-        console.log(req.body)
-        if(err){
-            res.send('error' + err)
-        } else{
-            var user = req.user
-            console.log('user:'+ user)
-            
-            console.log('log:'+ log)
+        Log.create(req.body, function(err,log){
+            console.log(req.body)
+            if(err){
+                res.send('error' + err)
+            } else{
+                var user = req.user
+                console.log('user:'+ user)
+                
+                console.log('log:'+ log)
 
-            user.local.logs.push(log)
-            user.save(function(err,user){
-                if(err)console.log(err);
-                console.log('user saved')
-            })
-            res.redirect('/logs')
-        }
+                user.local.logs.push(log)
+                user.save(function(err,user){
+                    if(err)console.log(err);
+                    console.log('user saved')
+                })
+                res.redirect('/logs')
+            }
+        })
     })
-})
 
 
     //SHOW LOG
