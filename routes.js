@@ -40,9 +40,7 @@ module.exports = function(app, passport) {
         }
         console.log(totalhours)
 
-        // var badge = calculateBadge(totalhours)
-
-//work out what badges the user has based on the total number of hours
+    //work out what badges the user has based on the total number of hours and call the giveBadgeToUser function
     switch (true) {
         case (totalhours > 10 && totalhours < 14):
             console.log(totalhours)
@@ -68,7 +66,7 @@ module.exports = function(app, passport) {
 
     }
 
-
+    //give Badge to a user
     function giveBadgeToUser(badgename) {
         Badge.findOne({ name: badgename }, function(err, badge){
                 if(err) console.log(err)
@@ -80,20 +78,25 @@ module.exports = function(app, passport) {
                         User.find({}).populate('local.badges').exec(function(err, users){
                             console.log(users[0].local.badges[0].name)
                             console.log(users[0].local.badges[0].image)
-                            res.json({
-                                badgename: users[0].local.badges[0].name
-
-
-                            })
                         })
-                    // User.findOne(req.user).populate('local.badges.name').exec(function(err, users){
-                    //     console.log(user.local.badges[0].name)
                     })
                     
-                })
-                //console.log(req.user)   
+                })   
             
     }
+    //send json of all users badges
+    req.user.save(function(err, user){
+        if(err) console.log(err)
+        User.find({_id: req.user._id}).populate('local.badges').exec(function(err, users){
+            console.log(users)
+            res.json(
+            users[0].local.badges
+            )
+        })
+        })
+        
+    })  
+    
 
 // var userBadgesObjects = []
 
@@ -114,7 +117,7 @@ module.exports = function(app, passport) {
         
         
         
-})
+
 //ROUTE FOR SHOWING THE BADGES FOR THE LOGGED IN USER
 
     
