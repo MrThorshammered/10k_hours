@@ -2,6 +2,7 @@ body{
 	background: linear-gradient(45deg, #ffc387 3%,#ffc387 14%,#ffa245 80%);
 	background-repeat: repeat-y;
 	color: #C13100;
+	overflow-y: scroll;
 }
 
 
@@ -98,8 +99,10 @@ h1{
 	width: 45%;
 	position: fixed;
 	left: 27%;
+	height: 600px;
 	background-color: rgba(156,186,127, 0.9);
 	border-radius: 25px;
+	overflow-y: scroll;
 	
 }
 
@@ -109,4 +112,96 @@ h1{
 	opacity: 1;
 }
 
+
+.profile-background{
+	background-image: url('../images/autumnal_background_3.jpg');
+	background-size: cover;
+}
+
+.login-unlink-block{
+	display: block;
+}
+
+.logout-unlink-button{
+	display: inline-block;
+}
+
+.facebook-name{
+	color: #333333;
+	font-size: 30px;
+	text-align: center;
+	display: block;
+}
+
+.big-jumbo{
+	width: 55%;
+	left: 23%;
+}
+
+.profile-info-container{
+	color: #333333;
+	font-size: 20px;
+}
+
+.log-list-info{
+	padding-left: 50px;
+	text-decoration: none;
+}
+
+#redline {
+  display: inline-block;
+  border: 1px solid orange;
+  width:780px;
+  height: 12px;
+  position: absolute;
+ /* overflow: hidden;*/
+  width: 400px;
+  background-color: white;
+  margin-top: 34px;
+  margin-left: 10px;
+
+}
+
+#thelineitself {
+  color: #f00;
+  background-color: orange;
+  height: 8px;
+  transform: rotate(0deg) translateY(0px) translateX(0px);
+  width: 100px;
+  border: 1px solid white;
+  margin-top: 0px;
+  margin-left: 0px;
+
+}
+
+.progress-label{
+	display: inline-block;
+}
+
+.container-fluid{
+	color: #333333; 
+}
+
+.nav-bar-customising{
+	margin-top: -80px;
+	background-color: rgba(156,186,127, 0.9);
+	border-radius: 0px;
+	border: 0;
+	min-height: 40px ;
+	color: #333333;
+}
+
+.navbar .nav > li > a {
+    color:  #333333;
+}
+
+.profile-info {
+	padding-left: 100px;
+}
+
+p {
+	display: inline;
+	text-decoration: none;
+	font-weight: 100;
+}
 
