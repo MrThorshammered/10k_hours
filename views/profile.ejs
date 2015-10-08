@@ -3,60 +3,111 @@
 <html>
 <head>
     <title>10k</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <script type='text/javascript' > 
+                <% var totalhours = 0 %>
+
+                <% var logs = user.local.logs %>
+
+                <% for (var i=0; i<logs.length;i++ ) { %>
+                <%  var hours = logs[i].hours %>
+                <%    totalhours += hours %>
+                <%    } %>
+                var totalHours = <%= totalhours %>
+    </script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+
+    
     <link rel="stylesheet" type="text/css" href="css/profile.css">
+    <script type="text/javascript" src="/js/profile.js"> </script>
+
     <style>
         body        { padding-top:80px; word-wrap:break-word; }
+
     </style>
 </head>
-<body>
-<div class="container">
+   
+<body class="profile-background">
+
+ <nav class= "nav-bar-customising navbar navbar-default">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home |</a></li>
+        <li><a href="/profile">Profile |</a></li>
+        <li><a href="/logs/new">New log |</a></li>
+        <li><a href="/logs">Log history |</a></li> 
+        <li><a href="/badges">Badges |</a></li> 
+        <li><a href="/add-discipline">Change discipline |</a></li> 
+        <li><a href="/logout">Sign out |</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="big-jumbo jumbotron">
 
     <div class="page-header text-center">
     <!-- adding the username and image to the top of the screen -->
     <% if (user.facebook.token) { %>
 
-     <img src="<%= user.facebook.user_photos %>">
-        <h1><%= user.facebook.name %></h1>
-
+        <img src="<%= user.facebook.user_photos %>">
+        <label class= "facebook-name"><%= user.facebook.name %></label>
+    
+    <% } else { %>
+        <img src= "../images/generic1.png">
+        <label class= "facebook-name"><%= user.local.screen_name %></label>
          <% } %>
+        
+        <div class= "login-unlink-block">
+            <a href="/logout" class="logout-unlink-button btn btn-default btn-sm">Logout</a>
+            <% if (user.facebook.token) { %>
+                
+                <a href="/unlink/facebook" class="logout-unlink-button btn btn-default btn-sm">Unlink From Facebook</a>
+             <% } else { %>
+                 <a href="/connect/facebook" class="logout-unlink-button btn btn-default btn-sm">Connect To Facebook to add a profile picture</a>
+            <% } %>
+        </div>
 
-        <a href="/logout" id="logout-btn" class="btn btn-default btn-sm">Logout</a>
     </div>
 
-    <div class="row">
+    <div class= "profile-info row">
 
 
         <div class="row">
 
         <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-            <h1>Progress: placeholder</h1>
-              <% if (user.local.email) { %>
-                    <p>
-                        <strong>Screen name</strong>: <%= user.local.screen_name %><br>
-                        <strong>Discipline</strong>: <%= user.local.discipline %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                    </p>
-                    <a class="btn btn-primary" id="log-btn" href="/logs">My Logs</a><br>
-                    
-                <% } %>
+        <div>
+            <div class = "profile-info-container">
+            <h2>Discipline: <p><%= user.local.discipline %></p></h2>
+            <h2 class="progress-label">Progress:</h2>
+                <div id = "redline">
+                    <hr id="thelineitself">
+                </div>
+            <h2> Total hours logged:
+                 <p>
+                 <% var totalhours = 0 %>
 
-                <h1>Badges: <a href="/badges" class="btn btn-primary">My Badges</a></h1>
+                <% var logs = user.local.logs %>
 
-                <h3><span class="fa fa-facebook"></span> Facebook</h3>
+                <% for (var i=0; i<logs.length;i++ ) { %>
+                <%  var hours = logs[i].hours %>
+                <%    totalhours += hours %>
+                <%    } %>
+                <%= totalhours %> 
+                </p>
+            </h2>
 
-                    <% if (user.facebook.token) { %>
+
+                <h2>Badges: <p> <%=(user.local.badges.length)-1%> </p></h2>
+                <h2> Latest log: <p>"<%= user.local.logs[(user.local.logs.length)-1].name %>" on <%= user.local.logs[(user.local.logs.length)-1].date.getDate() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getMonth() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getYear() %> </p></h2>
                 
-                    <a href="/unlink/facebook" class="btn btn-primary">Unlink From Facebook</a>
-                <% } else { %>
-                    <h3>To Add A Profile Picture Please:</h3>
-                    <a href="/connect/facebook" class="btn btn-primary">Connect To Facebook</a>
-                <% } %>
+
                 
 
+
+                <!-- h3><span class="fa fa-facebook"></span> Facebook</h3> -->
                   
 
             </div>

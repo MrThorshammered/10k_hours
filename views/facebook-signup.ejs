@@ -4,49 +4,60 @@
 <html>
 <head>
     <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+
+    
     <link rel="stylesheet" type="text/css" href="css/profile.css">
     <style>
         body        { padding-top:80px; }
     </style>
 </head>
-<body>
-<div class="container">
+<body id= "facebook-login-page-background">
+<nav class= "nav-bar-customising navbar navbar-default">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home |</a></li>
+        <li><a href="/profile">Profile |</a></li>
+        <li><a href="/logs/new">New log |</a></li>
+        <li><a href="/logs">Log history |</a></li> 
+        <li><a href="/badges">Badges |</a></li> 
+        <li><a href="/add-discipline">Change discipline |</a></li> 
+        <li><a href="/logout">Sign out |</a></li> 
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class= "jumbotron">
+
+<!-- <h1 id= "discipline-header"><span class="fa fa-sign-in"></span> Select your discipline</h1> -->
 
 <div class="col-sm-6 col-sm-offset-3">
 
-    <h1><span class="fa fa-sign-in"></span> Select your discipline</h1>
+    
 
     <!-- LOGIN FORM -->
     
-            <label><%= user.facebook.name %></label>
-            <img src="<%= user.facebook.user_photos %>"><br>
-            <strong>email</strong>: <%= user.facebook.email %><br>
+            <img id= "facebook-pic" src="<%= user.facebook.user_photos %>"><br>
+            <label id= "facebook-name"><%= user.facebook.name %></label>
         </div>
 
     <div class="form-group">
-    <form action="/add-discipline" method="post">
-        <div class="form-group">
-            <label>Discipline</label>
-            <select class="form-control" name="discipline">
-              <option value="" disabled selected>Select the discipline you are practising</option>
-              <option value="kung-fu">Kung Fu</option>
-              <option value="golf">Golf</option>
-              <option value="salsa-dance">Salsa dance</option>
-              <option value="coding">Coding</option>
-            </select>
-        </div>
+        <form action="/add-discipline" method="post">
+            <div class="form-group">
+            <input type="text" class="discipline-form" name="discipline" placeholder= "What is your discipline?">
+            </div>
         
 
-        <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+        <button id= "discipline-button" type="submit" class="btn btn-warning btn-lg">Add discipline</button>
     </form>
 
 
     <hr>
 
-    <p>Already have an account? <a href="/login">Login</a></p>
-    <p>Or go <a href="/">home</a>.</p>
+    <p class= "have-account">Already have an account? <a href="/login">Login</a></p>
+    <p class= "have-account">Or go <a href="/">home</a>.</p>
 
 </div>
 
