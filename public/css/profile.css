@@ -146,3 +146,32 @@ h1{
 	text-decoration: none;
 }
 
+#redline {
+  display: inline-block;
+  border: 0px solid red;
+  width:780px;
+  height: 10px;
+  position: absolute;
+  overflow: hidden;
+  width: 400px;
+  background-color: white;
+  margin-top: 35px;
+  margin-left: 10px;
+
+}
+
+#thelineitself {
+  color: #f00;
+  background-color: red;
+  height: 8px;
+  transform: rotate(0deg) translateY(0px) translateX(0px);
+  width: 100px;
+  border: 1px solid black;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.progress-label{
+	display: inline-block;
+}
+
