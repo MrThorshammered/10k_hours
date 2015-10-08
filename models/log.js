@@ -11,3 +11,5 @@ var logSchema = new mongoose.Schema({
 var Log = mongoose.model('Log', logSchema);
 
 module.exports = Log
+
+
