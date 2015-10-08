@@ -42,23 +42,185 @@ module.exports = function(app, passport) {
 
     //work out what badges the user has based on the total number of hours and call the giveBadgeToUser function
     switch (true) {
-        case (totalhours > 10 && totalhours < 14):
+        case (totalhours > 5 && totalhours < 9):
             console.log(totalhours)
             console.log('you have badge 1')
             giveBadgeToUser('Baby Step')
             break;
-        case (totalhours > 15 && totalhours < 19):
+        case (totalhours > 10 && totalhours < 24):
             console.log('you have badge 1 and 2')
             giveBadgeToUser('Baby Step')
             giveBadgeToUser('Best in class')
             //console.log(req.user)
             break;
-        case (totalhours > 20):
+        case (totalhours > 25 && totalhours < 49):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
             giveBadgeToUser('Best in class')
             giveBadgeToUser('Bright spark')
+            break;
+        case (totalhours > 50 && totalhours < 99):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            break;
+        case (totalhours > 100 && totalhours < 499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            break;
+        case (totalhours > 500 && totalhours < 749):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            break;
+        case (totalhours > 750 && totalhours < 999):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            break;
+        case (totalhours > 1000 && totalhours < 1499 ):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            break;
+        case (totalhours > 1500 && totalhours < 2499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            break;
+        case (totalhours > 2500 && totalhours < 4999):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            break;
+        case (totalhours > 5000 && totalhours < 5999):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            break;
+        case (totalhours > 6000 && totalhours < 7499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            giveBadgeToUser('Master')
+            break;
+        case (totalhours > 7500 && totalhours < 8499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            giveBadgeToUser('Master')
+            giveBadgeToUser('Pathfinder')
+            break;
+        case (totalhours > 8500 && totalhours < 9499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            giveBadgeToUser('Master')
+            giveBadgeToUser('Pathfinder')
+            giveBadgeToUser('Pro')
+            break;
+        case (totalhours > 9500):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            giveBadgeToUser('Master')
+            giveBadgeToUser('Pathfinder')
+            giveBadgeToUser('Pro')
+            giveBadgeToUser('Teacher')
             break;
         default:
             console.log('default')

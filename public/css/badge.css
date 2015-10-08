@@ -6,6 +6,8 @@ body{
 }
 
 img{
+
+	padding-bottom: 7px;
 	padding-left: 50px;
 	padding-right: 25px;
 	
@@ -27,3 +29,30 @@ div{
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 
 }
+
+a{
+position: absolute;
+top: 0;
+right: 10%;
+color: black;
+text-decoration: none;
+font-weight: bold;
+
+}
+
+h4{
+	background-image: url('../images/metal.jpg');
+	border-radius: 15px;
+	display: inline-block;
+	width: 150px;
+	margin-top: -15px;
+	margin-bottom: -15px;
+}
+
+.badge-position{
+	display: inline-block;
+}
+
+
+
+
