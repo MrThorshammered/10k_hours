@@ -2,7 +2,6 @@ body{
 	background: linear-gradient(45deg, #ffc387 3%,#ffc387 14%,#ffa245 80%);
 	background-repeat: repeat-y;
 	color: #C13100;
-	overflow-y: scroll;
 }
 
 
