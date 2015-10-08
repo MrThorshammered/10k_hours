@@ -2,6 +2,13 @@ body{
 	background: linear-gradient(45deg, #ffc387 3%,#ffc387 14%,#ffa245 80%);
 	background-repeat: repeat-y;
 	color: #C13100;
+	padding-top:80px;
+	background-image: url('../images/autumnal_background_4.jpg');
+  color: #333333;
+}
+
+a {
+  color: #333333
 }
 
 
@@ -84,25 +91,22 @@ h1{
 	font-size: 30px
 }
 
-
-
 #facebook-login-page-background{
 	background-image: url('../images/autumnal_background_2.jpg');
 	background-size: cover
 
 }
 
-
-.jumbotron{
-	/*opacity: .85;*/
-	width: 45%;
-	position: fixed;
-	left: 27%;
-	height: 600px;
-	background-color: rgba(156,186,127, 0.9);
-	border-radius: 25px;
-	overflow-y: scroll;
-	
+.jumbotron {
+	min-width:400px;
+  opacity:1;
+  width: 45%;
+  position: fixed;
+  left: 27%;
+  height: 550px;
+  background-color: rgba(156,186,127, 0.9);
+  border-radius: 25px;
+  overflow-y: scroll;
 }
 
 #facebook-pic, #discipline-button{
@@ -110,7 +114,6 @@ h1{
 	margin: 0 auto;
 	opacity: 1;
 }
-
 
 .profile-background{
 	background-image: url('../images/autumnal_background_3.jpg');
@@ -195,7 +198,7 @@ h1{
 }
 
 .profile-info {
-	padding-left: 100px;
+	padding-left: 20px;
 }
 
 p {

@@ -16,12 +16,9 @@
     </head>
     <body>
         <div class="container">
-            <div class="col-sm-6 col-sm-offset-3">
+            <div class="jumbotron">
 
-                <h1><span class="fa fa-sign-in"></span> Login</h1>
-        <div class="jumbotron">
-
-            <h1>Login</h1>
+                <h1>Login</h1>
 
                 <!-- show any messages that come back with authentication -->
                 <% if (message.length > 0) { %>
@@ -44,9 +41,9 @@
 
                 <hr>
 
+                <p>Need an account?<a href="/signup"><strong>Sign up</strong></a></p>
 
-            <p>Need an account? <a href="/signup"><strong>Sign up</strong></a></p>
-            <p>or <strong>go</strong> <a href="/"><strong>home</strong></a>.</p>
+                <p>or <strong>go</strong> <a href="/"><strong>home</strong></a>.</p>
 
             </div>
 
