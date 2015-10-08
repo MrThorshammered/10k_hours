@@ -9,7 +9,6 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
 var methodOverride = require('method-override')
-var moment = require('moment')
 
 
 
@@ -33,19 +32,19 @@ app.use(bodyParser()); // get information from html forms
 app.use( express.static( "public" ) );
 app.set('view engine', 'ejs'); // set up ejs for templating
 
-app.use(cookieParser('secret')); // read cookies (needed for auth)
-app.use(session({cookie: { maxAge: 60000 }}));
+app.use(cookieParser()); // read cookies (needed for auth)
+// app.use(session({cookie: { maxAge: 60000 }}));
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 
 // required for passport
-//app.use(session({ secret: 'samjackmike' })); // session secret
+app.use(session({ secret: 'samjackmike' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(express.static(__dirname + '/public'));
 
 app.use(methodOverride('_method'));
-moment().format();
+
 
 var Log = require('./models/log')
 var Badge = require('./models/badge')
