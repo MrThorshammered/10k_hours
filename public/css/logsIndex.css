@@ -8,9 +8,8 @@ body{
 #newLog-btn{
 	background-color: #FF9900;
 	color: white;
-	position: relative;
-	left: 0%;
-  margin-left: 15px;
+	/*position: relative;*/
+	/*left: 80%;*/
 }
 
 .jumbotron {
@@ -26,8 +25,8 @@ body{
 }
 
 .log_entry{
-
-	/*float: left;*/
+	width:100%;
+	clear:both;
 }
 .position{
 	display: inline-block;
@@ -35,8 +34,8 @@ body{
 }
 
 #log_entry_btn{
-	margin-left: 15px;
-		position: relative;
+	/*margin-left: 15px;*/
+	/*position: relative;*/
 	color: #006400;
 	font-weight: bold;
 }
@@ -53,4 +52,3 @@ body{
 .navbar .nav > li > a {
     color:  #333333;
 }
-

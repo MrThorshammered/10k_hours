@@ -29,23 +29,22 @@
 </nav>
 <div class="jumbotron">
 <h2>Your practice logs</h2>
-<a href="logs/new" id="newLog-btn" class="moving-button btn btn-default">New Log</a>
+<a href="logs/new" id="newLog-btn" class="btn btn-default">New Log</a>
 
+  <% for(var i=0; i< userLogs.length; i++) {  %>
+    <div class="log_entry">
+      <a id="log_entry_btn" href="logs/<%=userLogs[i].id %>"><%=userLogs[i].name %></a>
+      Date: <%= userLogs[i].date.getDate()%>/<%=userLogs[i].date.getMonth()+1%>/<%= userLogs[i].date.getYear()+1900%><br>
 
-<% for(var i=0; i< userLogs.length; i++) {  %>
-  <div class="log_entry">
-  <a id="log_entry_btn" href="logs/<%=userLogs[i].id %>"><%=userLogs[i].name %>:</a>
-  Date: <%= userLogs[i].date.getDate()%>/<%=userLogs[i].date.getMonth()+1%>/<%= userLogs[i].date.getYear()+1900%><br>
-
-  <form method="POST" action="/logs/<%=userLogs[i].id %>">
-    <div class="form-group col-md-4">
-      <input type="hidden" name="_method" value="DELETE">
-    
-      <button type="submit" class="btn btn-success">Delete log</button>
-   
+      <form method="POST" action="/logs/<%=userLogs[i].id %>">
+        <div class="form-group">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" class="btn btn-success">Delete log</button> 
+        </div>
+      </form>
     </div>
-  </form>
-<% } %><br>
+  <% } %><br>
+
 
 
 	
