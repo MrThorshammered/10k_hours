@@ -100,9 +100,19 @@
             </h2>
 
 
-                <h2>Badges: <p> <%=(user.local.badges.length)-1%> </p></h2>
+<%var userBadges = user.local.badges
+var uniqueBadges = userBadges.filter(function(elem, pos,arr) {
+    return arr.indexOf(elem) == pos;
+  }); 
+%>
+    <%if (uniqueBadges.length !== 0) { %>
+                <h2>Badges: <p> <%=(uniqueBadges.length)%> </p></h2>
                 <h2> Latest log: <p>"<%= user.local.logs[(user.local.logs.length)-1].name %>" on <%= user.local.logs[(user.local.logs.length)-1].date.getDate() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getMonth() %>/<%= user.local.logs[(user.local.logs.length)-1].date.getYear() %> </p></h2>
-                
+
+                <% } else { %>
+                    
+                    <h2>Badges: 0 </h2>
+                <% } %>
 
                 
 
