@@ -28,7 +28,7 @@
     <div class="jumbotron">
       <div class ='log-details'>
         <h2>Session:</b> <%=log.name%></h2>
-        <b>Date:</b> <%= log.date.getDate()%>/<%=log.date.getMonth()+1%>/<%= log.date.getYear()+1900%><br>
+        <b>Date:</b><%=log.date.getMonth()+1%>/<%= log.date.getDate()%>/<%=log.date.getYear()+1900%><br>
         <b>Practice type:</b> <%= log.type%><br>
         <b>Duration:</b> <%=log.hours%> hours<br>
         <b>Notes:</b> <%=log.notes%><br>

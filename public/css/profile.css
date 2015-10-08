@@ -106,7 +106,7 @@ h1{
   height: 550px;
   background-color: rgba(156,186,127, 0.9);
   border-radius: 25px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #facebook-pic, #discipline-button{
@@ -133,11 +133,6 @@ h1{
 	font-size: 30px;
 	text-align: center;
 	display: block;
-}
-
-.big-jumbo{
-	width: 55%;
-	left: 23%;
 }
 
 .profile-info-container{
