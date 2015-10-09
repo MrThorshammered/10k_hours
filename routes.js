@@ -42,25 +42,25 @@ module.exports = function(app, passport) {
 
     //work out what badges the user has based on the total number of hours and call the giveBadgeToUser function
     switch (true) {
-        case (totalhours > 5 && totalhours < 9):
+        case (totalhours >= 5 && totalhours < 9):
             console.log(totalhours)
             console.log('you have badge 1')
             giveBadgeToUser('Baby Step')
             break;
-        case (totalhours > 10 && totalhours < 24):
+        case (totalhours >= 10 && totalhours < 24):
             console.log('you have badge 1 and 2')
             giveBadgeToUser('Baby Step')
             giveBadgeToUser('Best in class')
             //console.log(req.user)
             break;
-        case (totalhours > 25 && totalhours < 49):
+        case (totalhours >= 25 && totalhours < 49):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
             giveBadgeToUser('Best in class')
             giveBadgeToUser('Bright spark')
             break;
-        case (totalhours > 50 && totalhours < 99):
+        case (totalhours >= 50 && totalhours < 99):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -68,7 +68,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Bright spark')
             giveBadgeToUser('Collaborator')
             break;
-        case (totalhours > 100 && totalhours < 499):
+        case (totalhours >= 100 && totalhours < 499):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -77,7 +77,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Collaborator')
             giveBadgeToUser('Deep thinker')
             break;
-        case (totalhours > 500 && totalhours < 749):
+        case (totalhours >= 500 && totalhours < 749):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -87,7 +87,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Deep thinker')
             giveBadgeToUser('Deep thinker 2')
             break;
-        case (totalhours > 750 && totalhours < 999):
+        case (totalhours >= 750 && totalhours < 999):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -98,7 +98,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Deep thinker 2')
             giveBadgeToUser('Distinguished')
             break;
-        case (totalhours > 1000 && totalhours < 1499 ):
+        case (totalhours >= 1000 && totalhours < 1499 ):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -110,7 +110,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Distinguished')
             giveBadgeToUser('Frequent user')
             break;
-        case (totalhours > 1500 && totalhours < 2499):
+        case (totalhours >= 1500 && totalhours < 2499):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -123,7 +123,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Frequent user')
             giveBadgeToUser('Guru')
             break;
-        case (totalhours > 2500 && totalhours < 4999):
+        case (totalhours >= 2500 && totalhours < 4999):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -137,7 +137,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Guru')
             giveBadgeToUser('Hard worker')
             break;
-        case (totalhours > 5000 && totalhours < 5999):
+        case (totalhours >= 5000 && totalhours < 5999):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -152,7 +152,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Hard worker')
             giveBadgeToUser('Innovator')
             break;
-        case (totalhours > 6000 && totalhours < 7499):
+        case (totalhours >= 6000 && totalhours < 7499):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -168,7 +168,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Innovator')
             giveBadgeToUser('Master')
             break;
-        case (totalhours > 7500 && totalhours < 8499):
+        case (totalhours >= 7500 && totalhours < 8499):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -185,7 +185,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Master')
             giveBadgeToUser('Pathfinder')
             break;
-        case (totalhours > 8500 && totalhours < 9499):
+        case (totalhours >= 8500 && totalhours < 9499):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -203,7 +203,7 @@ module.exports = function(app, passport) {
             giveBadgeToUser('Pathfinder')
             giveBadgeToUser('Pro')
             break;
-        case (totalhours > 9500):
+        case (totalhours >= 9500):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
@@ -238,14 +238,15 @@ module.exports = function(app, passport) {
                 req.user.save(function(err, user){
                     if(err) console.log(err)
                         User.find({}).populate('local.badges').exec(function(err, users){
-                           console.log('hello')
+                           console.log(users[0].local.badges[0].name)
+                            console.log(users[0].local.badges[0].image)
                         })
                     })
                     
                 })   
             
     }
-    //send json of all users badges
+    //render all users badges
     req.user.save(function(err, user){
         if(err) console.log(err)
         User.find({_id: req.user._id}).populate('local.badges').exec(function(err, users){
@@ -271,6 +272,10 @@ module.exports = function(app, passport) {
             message: req.flash('test')
         });
     })
+
+//     app.all('/test', function(req, res){
+//   res.send(JSON.stringify(req.flash('test')));
+// });
 
     //NEW LOG
     app.get('/logs/new', isLoggedIn, function(req,res){
@@ -336,7 +341,9 @@ module.exports = function(app, passport) {
         req.user.save(function (err) {
             if(err) console.log(err)
             console.log('user saved')
-        
+            // log.save(function(err) {
+            //     if(err) console.log(err)
+            //     console.log('log saved')
             Log.findByIdAndUpdate(req.params.id, req.body, function(err,log){
                 if(err) console.log(err) 
                 })
