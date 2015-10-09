@@ -36,4 +36,14 @@ You get badges as you acculumate more hours or for eg. logging in three days in 
 - ? Web sockets ? - for group chat?
 
 
+Badges not loading initially - have to logout and log back in again to see them.
+Add discispline - youa re always asked for this when you log in via facebook
+
+Future features
+
+- Give user a breakdown of the different types of parctice they are doing
+- Tell user average session length etc
+- Badge info when you hover over it
+
+
 
