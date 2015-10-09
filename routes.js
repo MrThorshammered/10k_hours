@@ -238,8 +238,7 @@ module.exports = function(app, passport) {
                 req.user.save(function(err, user){
                     if(err) console.log(err)
                         User.find({}).populate('local.badges').exec(function(err, users){
-                            console.log(users[0].local.badges[0].name)
-                            console.log(users[0].local.badges[0].image)
+                           console.log('hello')
                         })
                     })
                     
@@ -272,10 +271,6 @@ module.exports = function(app, passport) {
             message: req.flash('test')
         });
     })
-
-//     app.all('/test', function(req, res){
-//   res.send(JSON.stringify(req.flash('test')));
-// });
 
     //NEW LOG
     app.get('/logs/new', isLoggedIn, function(req,res){
@@ -341,9 +336,7 @@ module.exports = function(app, passport) {
         req.user.save(function (err) {
             if(err) console.log(err)
             console.log('user saved')
-            // log.save(function(err) {
-            //     if(err) console.log(err)
-            //     console.log('log saved')
+        
             Log.findByIdAndUpdate(req.params.id, req.body, function(err,log){
                 if(err) console.log(err) 
                 })
