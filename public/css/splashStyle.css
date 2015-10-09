@@ -3,14 +3,17 @@ body{
 	background-size: cover;
 }
 
-.jumbotron{
-	opacity: .85;
-	width: 45%;
-	position: fixed;
-	left: 27%;
-	background-color: #9CBA7F;
-	border-radius: 25px;
-
+.jumbotron {
+	min-width:400px;
+  opacity:1;
+  width: 45%;
+  position: fixed;
+  left: 27%;
+  height: 550px;
+  background-color: rgba(156,186,127, 0.9);
+  border-radius: 25px;
+  overflow-y: auto;
+  padding-top: 25px;
 }
 
 .btn-default {
@@ -30,4 +33,17 @@ h1{
 #logo{
 	width: 200px;
 	height: 200px;
+}
+
+.nav-bar-customising{
+	margin-top: -40px;
+	background-color: rgba(156,186,127, 0.9);
+	border-radius: 0px;
+	border: 0;
+	min-height: 40px ;
+	color: #333333;
+}
+
+.navbar .nav > li > a {
+    color:  #333333;
 }

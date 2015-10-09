@@ -1,0 +1,41 @@
+body {
+  padding-top:40px;
+}
+
+h2 {
+  text-align: center;
+}
+
+legend {
+  font-weight:800;
+}
+
+label {
+  font-weight: normal;
+}
+
+.edit-log-body {
+  background-image: url('../images/autumn-scene.jpg');
+  background-size: cover;
+
+}
+
+.show-log-body {
+  background-image: url('../images/autumn-scene2.jpg');
+  background-size: cover;
+
+}
+
+.jumbotron {
+  min-width:400px;
+  opacity:1;
+  width: 45%;
+  position: fixed;
+  left: 27%;
+  height: 550px;
+  background-color: rgba(156,186,127, 0.9);
+  border-radius: 25px;
+  overflow-y: scroll;
+}
+
+

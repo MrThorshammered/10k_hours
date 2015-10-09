@@ -6,8 +6,6 @@ var mongoose = require('mongoose');
 
 app.use(methodOverride('_method'));
 
-   
-    
 
 module.exports = function(app, passport) {
 
@@ -31,7 +29,7 @@ module.exports = function(app, passport) {
 
     //SHOW BADGES FOR A USER
     app.get('/badges', isLoggedIn, function(req,res){
-//work out total number of hours
+    //work out total number of hours
         var totalhours = 0
 
         var logs = req.user.local.logs
@@ -42,27 +40,187 @@ module.exports = function(app, passport) {
         }
         console.log(totalhours)
 
-        // var badge = calculateBadge(totalhours)
-
-//work out what badges the user has based on the total number of hours
+    //work out what badges the user has based on the total number of hours and call the giveBadgeToUser function
     switch (true) {
-        case (totalhours > 10 && totalhours < 14):
+        case (totalhours > 5 && totalhours < 9):
             console.log(totalhours)
             console.log('you have badge 1')
             giveBadgeToUser('Baby Step')
             break;
-        case (totalhours > 15 && totalhours < 19):
+        case (totalhours > 10 && totalhours < 24):
             console.log('you have badge 1 and 2')
             giveBadgeToUser('Baby Step')
             giveBadgeToUser('Best in class')
             //console.log(req.user)
             break;
-        case (totalhours > 20):
+        case (totalhours > 25 && totalhours < 49):
             console.log(totalhours)
             console.log('you have badge 1, 2, and 3')
             giveBadgeToUser('Baby Step')
             giveBadgeToUser('Best in class')
             giveBadgeToUser('Bright spark')
+            break;
+        case (totalhours > 50 && totalhours < 99):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            break;
+        case (totalhours > 100 && totalhours < 499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            break;
+        case (totalhours > 500 && totalhours < 749):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            break;
+        case (totalhours > 750 && totalhours < 999):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            break;
+        case (totalhours > 1000 && totalhours < 1499 ):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            break;
+        case (totalhours > 1500 && totalhours < 2499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            break;
+        case (totalhours > 2500 && totalhours < 4999):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            break;
+        case (totalhours > 5000 && totalhours < 5999):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            break;
+        case (totalhours > 6000 && totalhours < 7499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            giveBadgeToUser('Master')
+            break;
+        case (totalhours > 7500 && totalhours < 8499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            giveBadgeToUser('Master')
+            giveBadgeToUser('Pathfinder')
+            break;
+        case (totalhours > 8500 && totalhours < 9499):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            giveBadgeToUser('Master')
+            giveBadgeToUser('Pathfinder')
+            giveBadgeToUser('Pro')
+            break;
+        case (totalhours > 9500):
+            console.log(totalhours)
+            console.log('you have badge 1, 2, and 3')
+            giveBadgeToUser('Baby Step')
+            giveBadgeToUser('Best in class')
+            giveBadgeToUser('Bright spark')
+            giveBadgeToUser('Collaborator')
+            giveBadgeToUser('Deep thinker')
+            giveBadgeToUser('Deep thinker 2')
+            giveBadgeToUser('Distinguished')
+            giveBadgeToUser('Frequent user')
+            giveBadgeToUser('Guru')
+            giveBadgeToUser('Hard worker')
+            giveBadgeToUser('Innovator')
+            giveBadgeToUser('Master')
+            giveBadgeToUser('Pathfinder')
+            giveBadgeToUser('Pro')
+            giveBadgeToUser('Teacher')
             break;
         default:
             console.log('default')
@@ -70,46 +228,35 @@ module.exports = function(app, passport) {
 
     }
 
-    // BADGES = {
-    //     '1': ['badge 1'],
-    //     '2': ['badge 1', '2'],
-    //     '3': ['badge 1', 2,3],
-    //     '4': ['badge 1',2,3,4]
-    // }
-
-
-
-
-        // console.log(req.user)
-
-
-function giveBadgeToUser(badgename) {
-    Badge.findOne({ name: badgename }, function(err, badge){
-            if(err) console.log(err)
-            console.log(badge)
-            req.user.local.badges.push(badge)
-            req.user.save(function(err){
+    //give Badge to a user
+    function giveBadgeToUser(badgename) {
+        Badge.findOne({ name: badgename }, function(err, badge){
                 if(err) console.log(err)
-                console.log('user saved')
-            })
-            //console.log(req.user)   
+                // console.log(badge)
+                req.user.local.badges.push(badge)
+
+                req.user.save(function(err, user){
+                    if(err) console.log(err)
+                        User.find({}).populate('local.badges').exec(function(err, users){
+                            console.log(users[0].local.badges[0].name)
+                            console.log(users[0].local.badges[0].image)
+                        })
+                    })
+                    
+                })   
+            
+    }
+    //send json of all users badges
+    req.user.save(function(err, user){
+        if(err) console.log(err)
+        User.find({_id: req.user._id}).populate('local.badges').exec(function(err, users){
+            console.log(users)
+            res.render(
+            'badges_views/showbadges',{userBadges: users[0].local.badges}
+            )
         })
-}
-
-
-        // Badge.findById('5614f3df85ffa83c2d9952bc', function(err, badge){
-        //     if(err) console.log(err)
-        //     //console.log(badge)
-        //     req.user.local.badges.push(badge)
-        //     //console.log(req.user)   
-        // })
+        })
         
-
-
-
-        // var userBadges = req.user.local.badges
-        // console.log(userBadges)
-        // res.render('badges/index', { userBadges: userBadges });
     })
 
     //=========
@@ -120,8 +267,15 @@ function giveBadgeToUser(badgename) {
     app.get('/logs', isLoggedIn, function(req,res){ 
          var userLogs = req.user.local.logs
             //res.json(userLogs)
-        res.render('logs_views/index', { userLogs: userLogs });
+        res.render('logs_views/index', {
+            userLogs: userLogs,
+            message: req.flash('test')
+        });
     })
+
+//     app.all('/test', function(req, res){
+//   res.send(JSON.stringify(req.flash('test')));
+// });
 
     //NEW LOG
     app.get('/logs/new', isLoggedIn, function(req,res){
@@ -130,25 +284,25 @@ function giveBadgeToUser(badgename) {
 
     //CREATE LOG
     app.post('/logs', isLoggedIn, function(req,res){
-    Log.create(req.body, function(err,log){
-        console.log(req.body)
-        if(err){
-            res.send('error' + err)
-        } else{
-            var user = req.user
-            console.log('user:'+ user)
-            
-            console.log('log:'+ log)
+        Log.create(req.body, function(err,log){
+            console.log(req.body)
+            if(err){
+                res.send('error' + err)
+            } else{
+                var user = req.user
+                console.log('user:'+ user)
+                
+                console.log('log:'+ log)
 
-            user.local.logs.push(log)
-            user.save(function(err,user){
-                if(err)console.log(err);
-                console.log('user saved')
-            })
-            res.redirect('/logs')
-        }
+                user.local.logs.push(log)
+                user.save(function(err,user){
+                    if(err)console.log(err);
+                    console.log('user saved')
+                })
+                res.redirect('/logs')
+            }
+        })
     })
-})
 
 
     //SHOW LOG
@@ -158,7 +312,8 @@ function giveBadgeToUser(badgename) {
         // req.json(userLogs.this.id)
        Log.findById(req.params.id, function (err, log) {
         if(err) console.log(err)
-        res.json(log)
+        // res.json(log)
+        res.render('logs_views/show',{log:log})
        });
 
     })
@@ -171,7 +326,7 @@ function giveBadgeToUser(badgename) {
         Log.findById(req.params.id, function (err, log) {
         if(err) console.log(err)
         res.render('logs_views/edit', 
-            { log:log }
+            {log:log}
         )
        });
     })
@@ -201,7 +356,7 @@ function giveBadgeToUser(badgename) {
        
    
 
-    //DELETE
+    //DELETE LOG
     app.delete('/logs/:id', isLoggedIn, function(req,res){
         var user = req.user
         var logId = req.params.id
@@ -210,11 +365,14 @@ function giveBadgeToUser(badgename) {
             if(err) console.log(err)
             Log.findByIdAndRemove(logId, function(err, log){
                 if(err) console.log(err)
-                console.log('log deleted')
             })
-            res.redirect('/logs') 
+            req.flash('test', 'it worked');
+            res.redirect('/logs')
         });
     })
+
+
+
 
     // =====================================
     // HOME PAGE (with login links) ========
